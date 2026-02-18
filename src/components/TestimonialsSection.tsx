@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
@@ -35,6 +36,11 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const [current, setCurrent] = useState(0);
+  const prev = () => setCurrent(i => (i - 1 + testimonials.length) % testimonials.length);
+  const next = () => setCurrent(i => (i + 1) % testimonials.length);
+  const t = testimonials[current];
+
   return (
     <section className="py-24 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -57,7 +63,44 @@ const TestimonialsSection = () => {
         </motion.div>
       </div>
 
-      <div className="relative">
+      {/* Mobile: single card with arrows */}
+      <div className="md:hidden container mx-auto px-4">
+        <div className="bg-card border border-border rounded-2xl p-6">
+          <div className="flex gap-0.5 mb-4">
+            {[...Array(5)].map((_, j) => (
+              <Star key={j} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+            ))}
+          </div>
+          <p className="text-sm text-foreground leading-relaxed mb-6">"{t.quote}"</p>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full icon-bg flex items-center justify-center text-sm font-bold text-white shrink-0">
+              {t.name.split(" ").map(n => n[0]).join("")}
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-foreground">{t.name}</p>
+              <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-between mt-4 px-1">
+          <button
+            onClick={prev}
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <span className="text-xs text-muted-foreground">{current + 1} / {testimonials.length}</span>
+          <button
+            onClick={next}
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop: marquee */}
+      <div className="hidden md:block relative">
         <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         <div className="flex animate-marquee">

@@ -39,7 +39,7 @@ const HeroSection = () => {
             Trusted by 0+ companies worldwide
           </motion.div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground mb-6">
             We generate leads.
             <br />You close deals.
           </h1>

@@ -36,7 +36,7 @@ const Navbar = () => {
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500" style={{ width: scrolled ? "88%" : "95%", maxWidth: scrolled ? "900px" : "1024px" }}>
       <div className="bg-card/80 backdrop-blur-xl border border-border rounded-2xl px-6 py-3 flex items-center justify-between transition-all duration-500">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/Markety.png" alt="Markety" className="h-8 w-auto" />
+          <img src="/Markety.png" alt="Markety" className="h-9 w-auto object-top" />
           <span className="text-lg font-bold text-foreground">Markety</span>
         </Link>
 
