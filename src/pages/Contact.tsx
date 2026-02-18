@@ -210,7 +210,7 @@ const Contact = () => {
               <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, i) => (
                   <AccordionItem key={i} value={`faq-${i}`} className="border-border">
-                    <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline">
+                    <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline hover:text-purple-deep data-[state=open]:text-purple-deep transition-colors">
                       {faq.q}
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">

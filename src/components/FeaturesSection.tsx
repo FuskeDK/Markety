@@ -95,12 +95,12 @@ const FeaturesSection = () => {
             );
           })()}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             {features.slice(1).map((feature) => (
               <motion.div
                 key={feature.title}
                 variants={item}
-                className="bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300"
+                className="w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.33%-11px)] bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl icon-bg flex items-center justify-center mb-4">
                   <feature.icon className="w-5 h-5 text-white" />

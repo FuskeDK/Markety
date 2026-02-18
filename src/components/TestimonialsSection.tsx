@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, User } from "lucide-react";
 
 const testimonials = [
   {
@@ -35,14 +35,106 @@ const testimonials = [
   },
 ];
 
+const SPEED = 0.6;
+
 const TestimonialsSection = () => {
+  // ── Mobile state ──
   const [current, setCurrent] = useState(0);
   const prev = () => setCurrent(i => (i - 1 + testimonials.length) % testimonials.length);
   const next = () => setCurrent(i => (i + 1) % testimonials.length);
   const t = testimonials[current];
 
+  // Touch swipe
+  const touchStartX = useRef(0);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    if (delta < -50) next();
+    else if (delta > 50) prev();
+  };
+
+  // ── Desktop scroll + drag ──
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const isHovering = useRef(false);
+  const drag = useRef({ active: false, startX: 0, startScroll: 0 });
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    // Start at the middle copy so we can scroll both ways
+    const oneSetWidth = el.scrollWidth / 3;
+    el.scrollLeft = oneSetWidth;
+
+    const frame = () => {
+      if (!isHovering.current && !drag.current.active) {
+        el.scrollLeft += SPEED;
+        // Seamless loop: stay within [oneSetWidth, 2*oneSetWidth)
+        if (el.scrollLeft >= oneSetWidth * 2) el.scrollLeft -= oneSetWidth;
+        if (el.scrollLeft < oneSetWidth) el.scrollLeft += oneSetWidth;
+      }
+      rafRef.current = requestAnimationFrame(frame);
+    };
+    rafRef.current = requestAnimationFrame(frame);
+
+    const onEnter = () => { isHovering.current = true; };
+    const onLeave = () => { isHovering.current = false; };
+
+    const onMouseDown = (e: MouseEvent) => {
+      drag.current = { active: true, startX: e.clientX, startScroll: el.scrollLeft };
+      el.style.cursor = "grabbing";
+      e.preventDefault();
+    };
+    const onMouseMove = (e: MouseEvent) => {
+      if (!drag.current.active) return;
+      const delta = drag.current.startX - e.clientX;
+      el.scrollLeft = drag.current.startScroll + delta;
+      // Keep within the three-copy range
+      const total = el.scrollWidth;
+      if (el.scrollLeft < 0) el.scrollLeft += oneSetWidth;
+      if (el.scrollLeft >= total - oneSetWidth) el.scrollLeft -= oneSetWidth;
+    };
+    const onMouseUp = () => {
+      if (!drag.current.active) return;
+      drag.current.active = false;
+      el.style.cursor = "grab";
+
+      // Snap to nearest card center
+      const CARD_TOTAL = 424; // 400px card + 12px margin each side
+      const containerWidth = el.clientWidth;
+      const viewportCenter = el.scrollLeft + containerWidth / 2;
+      const nearestIndex = Math.round((viewportCenter - 212) / CARD_TOTAL);
+      const targetScroll = nearestIndex * CARD_TOTAL + 212 - containerWidth / 2;
+      el.scrollTo({ left: Math.max(0, targetScroll), behavior: "smooth" });
+
+      // After snap animation completes, normalize position
+      setTimeout(() => {
+        while (el.scrollLeft >= oneSetWidth * 2) el.scrollLeft -= oneSetWidth;
+        while (el.scrollLeft < oneSetWidth) el.scrollLeft += oneSetWidth;
+      }, 420);
+    };
+
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("mouseleave", onLeave);
+    el.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
+      el.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, []);
+
   return (
-    <section className="py-24 overflow-hidden">
+    <section className="py-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,8 +155,12 @@ const TestimonialsSection = () => {
         </motion.div>
       </div>
 
-      {/* Mobile: single card with arrows */}
-      <div className="md:hidden container mx-auto px-4">
+      {/* Mobile: swipeable single card + arrows */}
+      <div
+        className="md:hidden container mx-auto px-4"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="bg-card border border-border rounded-2xl p-6">
           <div className="flex gap-0.5 mb-4">
             {[...Array(5)].map((_, j) => (
@@ -73,8 +169,8 @@ const TestimonialsSection = () => {
           </div>
           <p className="text-sm text-foreground leading-relaxed mb-6">"{t.quote}"</p>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full icon-bg flex items-center justify-center text-sm font-bold text-white shrink-0">
-              {t.name.split(" ").map(n => n[0]).join("")}
+            <div className="w-10 h-10 rounded-full icon-bg flex items-center justify-center shrink-0">
+              <User className="w-5 h-5 text-white" />
             </div>
             <div>
               <p className="text-sm font-semibold text-foreground">{t.name}</p>
@@ -99,11 +195,14 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      {/* Desktop: marquee */}
+      {/* Desktop: drag-to-scroll */}
       <div className="hidden md:block relative">
         <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        <div className="flex animate-marquee">
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-scroll no-scrollbar cursor-grab select-none"
+        >
           {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
             <div
               key={i}
@@ -116,8 +215,8 @@ const TestimonialsSection = () => {
               </div>
               <p className="text-sm text-foreground leading-relaxed mb-6">"{t.quote}"</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full icon-bg flex items-center justify-center text-sm font-bold text-white shrink-0">
-                  {t.name.split(" ").map(n => n[0]).join("")}
+                <div className="w-10 h-10 rounded-full icon-bg flex items-center justify-center shrink-0">
+                  <User className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t.name}</p>

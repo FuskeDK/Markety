@@ -50,9 +50,9 @@ const HowItWorksSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-8 flex gap-6 items-start hover:-translate-y-1 transition-all duration-300"
+              className="group bg-card border border-border rounded-2xl p-8 flex gap-6 items-start hover:-translate-y-1 transition-all duration-300"
             >
-              <p className="text-6xl font-extrabold shrink-0 leading-none select-none text-purple-deep opacity-25">
+              <p className="text-6xl font-extrabold shrink-0 leading-none select-none text-purple-deep opacity-25 group-hover:opacity-100 transition-opacity duration-300">
                 {step.number}
               </p>
               <div className="pt-1">
