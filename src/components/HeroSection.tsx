@@ -36,7 +36,6 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="inline-flex items-center gap-2 rounded-full badge-pill px-4 py-1.5 text-xs font-semibold mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             Trusted by 0+ companies worldwide
           </motion.div>
 
