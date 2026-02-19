@@ -6,9 +6,8 @@ import { useNavigate } from "react-router-dom";
 const HeroSection = () => {
   const navigate = useNavigate();
   return (
-    <section className="relative pt-40 pb-28 overflow-hidden">
-      {/* Grid background */}
-      <div className="absolute top-0 left-0 right-0 h-[680px] pointer-events-none" style={{
+    <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={{
         backgroundImage: `
           linear-gradient(to right, hsl(var(--border) / 0.9) 1px, transparent 1px),
           linear-gradient(to bottom, hsl(var(--border) / 0.9) 1px, transparent 1px)
@@ -17,8 +16,7 @@ const HeroSection = () => {
         maskImage: 'radial-gradient(ellipse 58% 52% at 50% 43%, transparent 0%, transparent 60%, black 88%)',
         WebkitMaskImage: 'radial-gradient(ellipse 58% 52% at 50% 43%, transparent 0%, transparent 60%, black 88%)',
       }} />
-      {/* Bottom fade */}
-      <div className="absolute top-0 left-0 right-0 h-[680px] pointer-events-none" style={{
+      <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={{
         background: `linear-gradient(to bottom, transparent 60%, hsl(var(--background)) 100%)`
       }} />
 
@@ -29,7 +27,6 @@ const HeroSection = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center max-w-3xl mx-auto"
         >
-          {/* Social proof pill */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -39,12 +36,12 @@ const HeroSection = () => {
             Trusted by 0+ companies worldwide
           </motion.div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground mb-5 md:mb-6">
             We generate leads.
             <br />You close deals.
           </h1>
 
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed">
             Markety handles your ad campaigns, funnels, and follow ups so your sales team always has someone to talk to.
           </p>
 
@@ -52,7 +49,7 @@ const HeroSection = () => {
             <Button
               variant="hero"
               size="lg"
-              className="rounded-full text-base px-8 py-6 min-w-[180px] font-bold"
+              className="rounded-full text-base px-8 py-6 w-full sm:w-auto font-bold"
               onClick={() => navigate("/contact", { state: { scrollToForm: true } })}
             >
               Work with us
@@ -61,7 +58,7 @@ const HeroSection = () => {
             <Button
               variant="heroOutline"
               size="lg"
-              className="rounded-full text-base px-8 py-6 min-w-[180px]"
+              className="rounded-full text-base px-8 py-6 w-full sm:w-auto"
               onClick={() => navigate("/about")}
             >
               Learn more

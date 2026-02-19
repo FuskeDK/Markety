@@ -45,16 +45,24 @@ const points = [
     desc: "Live dashboards showing spend, cost per lead, and pipeline value. Nothing is hidden or locked behind a report.",
   },
   {
-    title: "Our pricing reflects what we deliver",
-    desc: "No monthly retainers. We charge based on the leads that land in your CRM.",
+    title: "We stay current across every platform",
+    desc: "Platforms shift fast. We run weekly tests so the tactics we use are always what's working right now.",
   },
+];
+
+const statRows = [
+  { end: 200, start: 0, format: (n: number) => `${Math.round(n)}+`, label: "Companies worked with", percent: 80 },
+  { end: 92, start: 0, format: (n: number) => `${Math.round(n)}%`, label: "Client retention rate", percent: 92 },
+  { end: 3, start: 0, format: (n: number) => `$${Math.round(n)}`, label: "Avg. cost per lead", percent: 60 },
 ];
 
 const AboutPreview = () => {
   return (
-    <section className="py-24 bg-muted/40">
+    <section className="py-14 md:py-24 bg-muted/40">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
+
+          {/* Left — text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,13 +75,10 @@ const AboutPreview = () => {
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Most agencies operate in a black box. We'd rather show you exactly what we're doing, why, and what it costs. Then adjust based on what your sales team is actually seeing.
             </p>
-
             <div className="space-y-5">
               {points.map((point) => (
                 <div key={point.title} className="flex gap-3">
-                  <div className="w-5 h-5 rounded-full icon-bg flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-3 h-3 text-white" />
-                  </div>
+                  <CheckCircle2 className="w-4 h-4 text-purple-deep shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-foreground">{point.title}</p>
                     <p className="text-sm text-muted-foreground">{point.desc}</p>
@@ -83,26 +88,63 @@ const AboutPreview = () => {
             </div>
           </motion.div>
 
+          {/* Right — dashboard-style card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="bg-card border border-border rounded-2xl overflow-hidden"
+            className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm"
           >
-            {[
-              { end: 2026, start: 2024, format: (n: number) => `${Math.round(n)}`, label: "Year we started" },
-              { end: 200, start: 0, format: (n: number) => `${Math.round(n)}+`, label: "Companies we've worked with" },
-              { end: 92, start: 0, format: (n: number) => `${Math.round(n)}%`, label: "Client retention rate" },
-            ].map((stat, i) => (
-              <div key={stat.label} className={`px-8 py-6 ${i !== 0 ? "border-t border-border" : ""}`}>
-                <p className="text-4xl font-extrabold text-purple-deep tabular-nums">
-                  <CountUpNumber end={stat.end} start={stat.start} format={stat.format} />
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+            {/* Header bar */}
+            <div className="bg-purple-deep px-6 py-4 flex items-center justify-between">
+              <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">Performance overview</p>
+              <div className="flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-white/20" />
+                <span className="w-2 h-2 rounded-full bg-white/20" />
+                <span className="w-2 h-2 rounded-full bg-white/20" />
               </div>
-            ))}
+            </div>
+
+            {/* Stat rows with bars */}
+            <motion.div
+              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="divide-y divide-border"
+            >
+              {statRows.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.4 } } }}
+                  className="px-6 py-5"
+                >
+                  <div className="flex items-baseline justify-between mb-2">
+                    <p className="text-xs text-muted-foreground">{stat.label}</p>
+                    <p className="text-2xl font-extrabold text-foreground tabular-nums">
+                      <CountUpNumber end={stat.end} start={stat.start} format={stat.format} />
+                    </p>
+                  </div>
+                  <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full bg-purple-deep rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${stat.percent}%` }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 + i * 0.1, duration: 1, ease: "easeOut" }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Footer note */}
+            <div className="px-6 py-4 bg-muted/50 border-t border-border">
+              <p className="text-xs text-muted-foreground">Updated weekly · All data from live accounts</p>
+            </div>
           </motion.div>
+
         </div>
       </div>
     </section>

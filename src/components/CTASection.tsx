@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const CTASection = () => {
   const navigate = useNavigate();
   return (
-    <section className="py-20 bg-muted/50">
+    <section className="py-14 md:py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ const CTASection = () => {
           <Button
             variant="hero"
             size="lg"
-            className="rounded-full text-base px-10 py-6 font-bold"
+            className="rounded-full text-base px-10 py-6 font-bold w-full sm:w-auto"
             onClick={() => navigate('/contact', { state: { scrollToForm: true } })}
           >
             Contact us

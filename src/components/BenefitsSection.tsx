@@ -21,40 +21,52 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-20 bg-card-foreground">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-400 mb-4">Our model</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-background mb-3">
-            Built around your results
-          </h2>
-          <p className="text-background/50 max-w-lg mx-auto">
-            We don't charge retainers. Our pricing is tied directly to the leads we deliver.
-          </p>
-        </motion.div>
+    <section className="py-14 md:py-20 bg-muted/40">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-          {benefits.map((benefit, i) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="border border-background/10 rounded-2xl p-8 text-center"
-            >
-              <div className="w-14 h-14 rounded-xl bg-background/10 flex items-center justify-center mb-5 mx-auto">
-                <benefit.icon className="w-7 h-7 text-purple-400" />
-              </div>
-              <h3 className="text-lg font-bold text-background mb-2">{benefit.title}</h3>
-              <p className="text-sm text-background/50 leading-relaxed">{benefit.description}</p>
-            </motion.div>
-          ))}
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">Our model</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4">
+              Built around your results
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              We don't charge retainers. Our pricing is tied directly to the leads we deliver — so we're always motivated to send you people who are actually ready to buy.
+            </p>
+            <div className="flex items-baseline gap-3">
+              <span className="text-6xl font-extrabold text-purple-deep leading-none">$3</span>
+              <span className="text-sm text-muted-foreground">average cost per lead</span>
+            </div>
+          </motion.div>
+
+          {/* Right */}
+          <motion.div
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="space-y-7 lg:pt-2"
+          >
+            {benefits.map((benefit) => (
+              <motion.div
+                key={benefit.title}
+                variants={{ hidden: { opacity: 0, x: 16 }, show: { opacity: 1, x: 0, transition: { duration: 0.45 } } }}
+                className="flex gap-4 items-start"
+              >
+                <benefit.icon className="w-5 h-5 text-purple-deep shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-foreground mb-1">{benefit.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
         </div>
       </div>
     </section>

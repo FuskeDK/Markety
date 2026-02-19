@@ -40,21 +40,19 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <section className="py-16 border-y border-border bg-muted/20">
+    <section className="py-12 md:py-16 border-y border-border bg-muted/20">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto"
         >
-          {stats.map((stat, i) => (
+          {stats.map((stat) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
               className="text-center"
             >
               <p className="text-4xl md:text-5xl font-extrabold text-purple-deep mb-2 tabular-nums">

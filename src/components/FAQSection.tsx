@@ -41,13 +41,13 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-24 bg-muted/40">
+    <section className="py-14 md:py-24 bg-muted/40">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-10 md:mb-14"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">FAQ</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">

@@ -139,3 +139,18 @@
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-10px); }
 }
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Mobile base: prevent iOS font scaling & ensure comfortable tap targets ── */
+@media (max-width: 768px) {
+  html { -webkit-text-size-adjust: 100%; }
+  button, a { min-height: 44px; }
+}

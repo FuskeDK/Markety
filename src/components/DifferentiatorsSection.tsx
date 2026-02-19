@@ -26,13 +26,13 @@ const items = [
 
 const DifferentiatorsSection = () => {
   return (
-    <section className="py-24">
+    <section className="py-14 md:py-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-10 md:mb-14"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">What you get</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">
@@ -43,24 +43,27 @@ const DifferentiatorsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
-          {items.map((item, i) => (
+        <motion.div
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto divide-y divide-border border border-border rounded-2xl overflow-hidden"
+        >
+          {items.map((item) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-6 text-center hover:-translate-y-1 transition-all duration-300"
+              variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
+              className="flex gap-4 md:gap-5 items-start px-5 md:px-7 py-5 md:py-6 bg-card hover:bg-muted/40 transition-colors duration-200"
             >
-              <div className="w-14 h-14 rounded-2xl icon-bg flex items-center justify-center mb-4 mx-auto">
-                <item.icon className="w-6 h-6 text-white" />
+              <item.icon className="w-5 h-5 text-purple-deep shrink-0 mt-1" />
+              <div>
+                <h3 className="text-base font-bold text-foreground mb-1">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
-              <h3 className="text-base font-bold text-foreground mb-2">{item.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

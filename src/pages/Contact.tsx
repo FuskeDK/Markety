@@ -52,7 +52,7 @@ function CountUpNumber({
 const faqs = [
   {
     q: "What happens after I send a message?",
-    a: "We read every message personally and reply within one business day. If there's a potential fit, we'll suggest a quick call to understand your situation and walk you through how we work.",
+    a: "We read every message personally and reply within one business day. If there's a potential fit, we'll follow up to learn more about your situation and walk you through how we work.",
   },
   {
     q: "What types of businesses do you work with?",
@@ -126,7 +126,7 @@ const Contact = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
+      <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={{
           backgroundImage: `
             linear-gradient(to right, hsl(var(--border) / 0.9) 1px, transparent 1px),
@@ -148,10 +148,10 @@ const Contact = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-6">Contact</p>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-foreground mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6">
               Get in touch
             </h1>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
               Have a question or want to discuss working together? We'd like to hear from you.
             </p>
           </motion.div>
@@ -161,7 +161,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto"
+            className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto"
           >
             {[
               {
@@ -194,47 +194,10 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 border-t border-border">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">FAQ</p>
-              <h2 className="text-3xl font-extrabold text-foreground mb-4">Frequently asked questions</h2>
-              <p className="text-muted-foreground">Common questions from people thinking about working with us.</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`faq-${i}`} className="border-border">
-                    <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline hover:text-purple-deep data-[state=open]:text-purple-deep transition-colors">
-                      {faq.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      {faq.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Form + Info */}
-      <section id="contact-form" className="py-20 bg-muted/50">
+      <section id="contact-form" className="py-14 md:py-20 bg-muted/50 border-t border-border">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -308,6 +271,42 @@ const Contact = () => {
                 <p className="text-sm text-foreground font-semibold mb-1">Estimated response time</p>
                 <p className="text-sm text-muted-foreground">We respond within 24 hours on business days. It can be longer if our client list is long.</p>
               </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-14 md:py-20 border-t border-border">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">FAQ</p>
+              <h2 className="text-3xl font-extrabold text-foreground mb-4">Frequently asked questions</h2>
+              <p className="text-muted-foreground">Common questions from people thinking about working with us.</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <Accordion type="single" collapsible className="w-full">
+                {faqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="border-border">
+                    <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline hover:text-purple-deep data-[state=open]:text-purple-deep transition-colors">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </motion.div>
           </div>
         </div>
