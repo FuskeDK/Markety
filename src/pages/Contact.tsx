@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useTrustpilotFiveStarCount } from "@/hooks/useTrustpilotStats";
+import { useLeadsCount } from "@/hooks/useLeadsCount";
 
 function CountUpNumber({
   end,
@@ -83,6 +84,7 @@ const Contact = () => {
   const { toast } = useToast();
   const location = useLocation();
   const { data: fiveStarCount = 0 } = useTrustpilotFiveStarCount();
+  const { data: leadsCount = 0 } = useLeadsCount();
 
   useEffect(() => {
     if (location.state?.scrollToForm) {
@@ -173,8 +175,11 @@ const Contact = () => {
                 label: "Average lead price",
               },
               {
-                end: 0,
-                format: (n: number) => `${Math.round(n)}K`,
+                end: leadsCount,
+                format: (n: number) => {
+                  const r = Math.round(n);
+                  return r >= 1000 ? `${(r / 1000).toFixed(1).replace(/\.0$/, "")}K` : `${r}`;
+                },
                 label: "Leads generated",
               },
             ].map((stat) => (

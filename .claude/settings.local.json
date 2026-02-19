@@ -3,7 +3,9 @@
     "allow": [
       "WebFetch(domain:sandboxleadgen.com)",
       "Bash(cmd /c:*)",
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "WebFetch(domain:docs.google.com)",
+      "WebFetch(domain:script.google.com)"
     ]
   }
 }
