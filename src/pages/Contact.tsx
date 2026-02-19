@@ -15,6 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useTrustpilotFiveStarCount } from "@/hooks/useTrustpilotStats";
 
 function CountUpNumber({
   end,
@@ -81,6 +82,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const location = useLocation();
+  const { data: fiveStarCount = 0 } = useTrustpilotFiveStarCount();
 
   useEffect(() => {
     if (location.state?.scrollToForm) {
@@ -161,7 +163,7 @@ const Contact = () => {
           >
             {[
               {
-                end: 0,
+                end: fiveStarCount,
                 format: (n: number) => `${Math.round(n)}+`,
                 label: "Happy clients",
               },
