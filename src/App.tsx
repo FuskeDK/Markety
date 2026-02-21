@@ -5,13 +5,16 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { leadsCountQueryConfig } from "./hooks/useLeadsCount";
+import CookieBanner from "@/components/CookieBanner";
+import ScrollToTop from "@/components/ScrollToTop";
 
-const Index   = lazy(() => import("./pages/Index"));
-const SignIn  = lazy(() => import("./pages/SignIn"));
-const SignUp  = lazy(() => import("./pages/SignUp"));
-const About   = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Index    = lazy(() => import("./pages/Index"));
+const About    = lazy(() => import("./pages/About"));
+const Contact  = lazy(() => import("./pages/Contact"));
+const Privacy  = lazy(() => import("./pages/Privacy"));
+const Terms     = lazy(() => import("./pages/Terms"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const NotFound  = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 queryClient.prefetchQuery(leadsCountQueryConfig);
@@ -24,14 +27,17 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/"        element={<Index />} />
+            <Route path="/about"   element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms"      element={<Terms />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="*"        element={<NotFound />} />
           </Routes>
         </Suspense>
+        <CookieBanner />
+        <ScrollToTop />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -14,9 +14,8 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-8">
-            <a href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</a>
-            <a href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</a>
-            <a href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+            <a href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
+            <a href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms & Conditions</a>
           </div>
 
           <div className="flex items-center gap-4">
