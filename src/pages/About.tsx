@@ -40,7 +40,7 @@ const About = () => {
             transition={{ duration: 0.7 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-6">About Markety</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-6">About Markety</p>
             <h1 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6">
               The team behind your next pipeline
             </h1>
@@ -61,7 +61,7 @@ const About = () => {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600">How we got here</p>
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep">How we got here</p>
               <h2 className="text-3xl font-extrabold text-foreground">
                 We started because we kept seeing the same problem.
               </h2>
@@ -120,7 +120,7 @@ const About = () => {
                   </div>
                   {/* Content */}
                   <div className={`pb-10 ${i === arr.length - 1 ? "pb-0" : ""}`}>
-                    <p className="text-[11px] font-bold text-purple-600 uppercase tracking-[0.18em] mb-1">{item.period}</p>
+                    <p className="text-[11px] font-bold text-purple-deep uppercase tracking-[0.18em] mb-1">{item.period}</p>
                     <h3 className="text-base font-bold text-foreground mb-1.5">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
@@ -132,7 +132,7 @@ const About = () => {
       </section>
 
       {/* Numbers */}
-      <section className="py-14 md:py-20 bg-card-foreground">
+      <section className="py-14 md:py-20 bg-foreground dark:bg-muted">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -141,14 +141,14 @@ const About = () => {
             className="text-center mb-14"
           >
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-400 mb-4">By the numbers</p>
-            <h2 className="text-3xl font-extrabold text-background">Impact we've made so far</h2>
+            <h2 className="text-3xl font-extrabold text-background dark:text-foreground">Impact we've made so far</h2>
           </motion.div>
           <motion.div
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-px bg-background/10"
+            className="grid grid-cols-2 md:grid-cols-4 gap-px bg-background/10 dark:bg-foreground/10"
           >
             {[
               { value: "$3", label: "Avg. cost per lead", compact: false },
@@ -159,10 +159,10 @@ const About = () => {
               <motion.div
                 key={stat.label}
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
-                className="bg-card-foreground px-4 md:px-8 py-8 md:py-10 text-center"
+                className="bg-foreground dark:bg-muted px-4 md:px-8 py-8 md:py-10 text-center"
               >
-                <p className={`font-extrabold text-background mb-2 ${stat.compact ? "text-2xl md:text-4xl" : "text-3xl md:text-5xl"}`}>{stat.value}</p>
-                <p className="text-xs md:text-sm text-background/50">{stat.label}</p>
+                <p className={`font-extrabold text-background dark:text-foreground mb-2 ${stat.compact ? "text-2xl md:text-4xl" : "text-3xl md:text-5xl"}`}>{stat.value}</p>
+                <p className="text-xs md:text-sm text-background/50 dark:text-muted-foreground">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -178,7 +178,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">Who we are</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">Who we are</p>
             <h2 className="text-3xl font-extrabold text-foreground">Built with one focus</h2>
           </motion.div>
           <motion.div
@@ -215,7 +215,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">What we stand for</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">What we stand for</p>
             <h2 className="text-3xl font-extrabold text-foreground">
               The principles behind every campaign
             </h2>
@@ -257,7 +257,7 @@ const About = () => {
                   <item.icon className="w-6 h-6 text-purple-deep" />
                 </div>
                 <h3 className="text-lg font-extrabold text-foreground mb-1">{item.title}</h3>
-                <p className="text-xs font-semibold text-purple-600 mb-3">{item.tagline}</p>
+                <p className="text-xs font-semibold text-purple-deep mb-3">{item.tagline}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
@@ -274,7 +274,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">The experience</p>
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">The experience</p>
               <h2 className="text-3xl font-extrabold text-foreground mb-4">
                 What it's like to work with us
               </h2>
@@ -314,7 +314,7 @@ const About = () => {
                 { day: "Day 30", title: "First results report", desc: "Full breakdown of what's working and where we're scaling next." },
               ].map((step, i) => (
                 <div key={step.day} className={`px-6 py-5 flex gap-4 items-start ${i !== 0 ? "border-t border-border" : ""}`}>
-                  <span className="text-xs font-bold text-purple-600 bg-purple-light px-2.5 py-1 rounded-full shrink-0 mt-0.5 whitespace-nowrap">{step.day}</span>
+                  <span className="badge-pill text-xs font-bold px-2.5 py-1 rounded-full shrink-0 mt-0.5 whitespace-nowrap">{step.day}</span>
                   <div>
                     <p className="text-sm font-bold text-foreground">{step.title}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{step.desc}</p>
@@ -335,7 +335,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-14"
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">What we run</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">What we run</p>
             <h2 className="text-3xl font-extrabold text-foreground mb-3">
               Every channel that drives leads
             </h2>
@@ -401,7 +401,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">How we're different</p>
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">How we're different</p>
             <h2 className="text-3xl font-extrabold text-foreground">Why clients stay with us</h2>
           </motion.div>
           <motion.div
