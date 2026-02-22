@@ -9,6 +9,9 @@ import AboutPreview from "@/components/AboutPreview";
 import ProductSuite from "@/components/ProductSuite";
 import DifferentiatorsSection from "@/components/DifferentiatorsSection";
 import BenefitsSection from "@/components/BenefitsSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
+import ComparisonTable from "@/components/ComparisonTable";
+import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -27,6 +30,9 @@ const Index = () => {
       <ProductSuite />
       <DifferentiatorsSection />
       <BenefitsSection />
+      <CaseStudiesSection />
+      <ComparisonTable />
+      <BlogSection />
       <FAQSection />
       <CTASection />
       <Footer />

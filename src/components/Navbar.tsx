@@ -3,34 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [user, setUser] = useState<any>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
-    return () => subscription.unsubscribe();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    navigate("/");
-  };
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500" style={{ width: scrolled ? "88%" : "95%", maxWidth: scrolled ? "900px" : "1024px" }}>
