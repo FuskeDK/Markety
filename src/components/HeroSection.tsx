@@ -1,24 +1,29 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+const gridStyle: React.CSSProperties = {
+  backgroundImage: `
+    linear-gradient(to right, hsl(var(--border) / 0.9) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.9) 1px, transparent 1px)
+  `,
+  backgroundSize: "64px 64px",
+  maskImage: "radial-gradient(ellipse 58% 52% at 50% 43%, transparent 0%, transparent 60%, black 88%)",
+  WebkitMaskImage: "radial-gradient(ellipse 58% 52% at 50% 43%, transparent 0%, transparent 60%, black 88%)",
+};
+
+const fadeStyle: React.CSSProperties = {
+  background: "linear-gradient(to bottom, transparent 60%, hsl(var(--background)) 100%)",
+};
+
 const HeroSection = () => {
   const navigate = useNavigate();
   return (
     <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={{
-        backgroundImage: `
-          linear-gradient(to right, hsl(var(--border) / 0.9) 1px, transparent 1px),
-          linear-gradient(to bottom, hsl(var(--border) / 0.9) 1px, transparent 1px)
-        `,
-        backgroundSize: '64px 64px',
-        maskImage: 'radial-gradient(ellipse 58% 52% at 50% 43%, transparent 0%, transparent 60%, black 88%)',
-        WebkitMaskImage: 'radial-gradient(ellipse 58% 52% at 50% 43%, transparent 0%, transparent 60%, black 88%)',
-      }} />
-      <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={{
-        background: `linear-gradient(to bottom, transparent 60%, hsl(var(--background)) 100%)`
-      }} />
+      <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={gridStyle} />
+      <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={fadeStyle} />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div

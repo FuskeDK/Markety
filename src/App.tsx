@@ -15,7 +15,16 @@ const Privacy  = lazy(() => import("./pages/Privacy"));
 const Terms     = lazy(() => import("./pages/Terms"));
 const NotFound  = lazy(() => import("./pages/NotFound"));
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,   // 5 min — don't refetch data that was just fetched
+      gcTime:    1000 * 60 * 10,  // 10 min — keep unused cache entries for 10 min
+      retry: 1,
+      refetchOnWindowFocus: false, // don't hammer the API when user tabs back
+    },
+  },
+});
 queryClient.prefetchQuery(leadsCountQueryConfig);
 
 const App = () => (

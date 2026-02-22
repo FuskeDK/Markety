@@ -6,7 +6,10 @@
       "Bash(powershell -Command:*)",
       "WebFetch(domain:docs.google.com)",
       "WebFetch(domain:script.google.com)",
-      "Bash(tail:*)"
+      "Bash(tail:*)",
+      "Bash(anything)",
+      "Bash(cd:*)",
+      "Bash(cd \"C:/Users/PC/Documents/GitHub/Markety\" && npm run build 2>&1)"
     ]
   }
 }

@@ -64,10 +64,18 @@ const TestimonialsSection = () => {
     const el = scrollRef.current;
     if (!el) return;
 
-    // Wait one frame so flex layout is fully computed and scrollWidth is correct
+    let visible = false;
+
+    // Pause the RAF loop when the section is scrolled out of view
+    const observer = new IntersectionObserver(
+      ([entry]) => { visible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+
     let initRaf = requestAnimationFrame(() => {
       const oneSetWidth = el.scrollWidth / 3;
-      if (oneSetWidth < 100) return; // guard against unrendered state
+      if (oneSetWidth < 100) return;
       el.scrollLeft = oneSetWidth;
 
       const normalize = () => {
@@ -76,7 +84,7 @@ const TestimonialsSection = () => {
       };
 
       const frame = () => {
-        if (!drag.current.active) {
+        if (visible && !drag.current.active) {
           if (Math.abs(glideVelocity.current) > 0.1) {
             el.scrollLeft += glideVelocity.current;
             glideVelocity.current *= 0.92;
@@ -118,12 +126,13 @@ const TestimonialsSection = () => {
     };
 
     el.addEventListener("mousedown", onMouseDown);
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("mouseup", onMouseUp, { passive: true });
 
     return () => {
       cancelAnimationFrame(initRaf);
       cancelAnimationFrame(rafRef.current);
+      observer.disconnect();
       el.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseup", onMouseUp);
