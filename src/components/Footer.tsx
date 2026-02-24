@@ -1,9 +1,4 @@
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "@/hooks/useTheme";
-
 const Footer = () => {
-  const { isDark, toggle } = useTheme();
-
   return (
     <footer className="border-t border-border py-14 bg-muted/20">
       <div className="container mx-auto px-4">
@@ -18,18 +13,9 @@ const Footer = () => {
             <a href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms & Conditions</a>
           </div>
 
-          <div className="flex items-center gap-4">
-            <p className="text-sm text-muted-foreground">
-              © 2026 Markety. All rights reserved.
-            </p>
-            <button
-              onClick={toggle}
-              aria-label="Toggle dark mode"
-              className="p-2 rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-            >
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            © 2026 Markety. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

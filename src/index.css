@@ -112,6 +112,37 @@
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+  /* ── Custom scrollbar ── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--purple-mid) / 0.5);
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--purple-deep));
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--purple-mid) / 0.5) hsl(var(--muted));
+  }
+
   /* ── Marquee ── */
   .animate-marquee {
     animation: marquee 35s linear infinite;
@@ -154,5 +185,4 @@
 /* ── Mobile base: prevent iOS font scaling & ensure comfortable tap targets ── */
 @media (max-width: 768px) {
   html { -webkit-text-size-adjust: 100%; }
-  button, a { min-height: 44px; }
 }

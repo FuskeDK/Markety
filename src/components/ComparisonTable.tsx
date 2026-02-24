@@ -115,7 +115,7 @@ const ComparisonTable = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto overflow-x-auto"
         >
-          <table className="w-full border-separate border-spacing-0 text-sm">
+          <table className="w-full min-w-[600px] border-separate border-spacing-0 text-sm">
             <thead>
               <tr>
                 <th className="text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider pb-4 pr-4 w-1/3">

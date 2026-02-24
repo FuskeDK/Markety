@@ -132,7 +132,7 @@ const About = () => {
       </section>
 
       {/* Numbers */}
-      <section className="py-14 md:py-20 bg-foreground dark:bg-muted">
+      <section className="py-14 md:py-20 bg-foreground">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -148,7 +148,7 @@ const About = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-px bg-background/10 dark:bg-foreground/10"
+            className="grid grid-cols-2 md:grid-cols-4 gap-px bg-background/10"
           >
             {[
               { value: "$3", label: "Avg. cost per lead", compact: false },
@@ -159,10 +159,10 @@ const About = () => {
               <motion.div
                 key={stat.label}
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
-                className="bg-foreground dark:bg-muted px-4 md:px-8 py-8 md:py-10 text-center"
+                className="bg-foreground px-4 md:px-8 py-8 md:py-10 text-center"
               >
-                <p className={`font-extrabold text-background dark:text-foreground mb-2 ${stat.compact ? "text-2xl md:text-4xl" : "text-3xl md:text-5xl"}`}>{stat.value}</p>
-                <p className="text-xs md:text-sm text-background/50 dark:text-muted-foreground">{stat.label}</p>
+                <p className={`font-extrabold text-background mb-2 ${stat.compact ? "text-2xl md:text-4xl" : "text-3xl md:text-5xl"}`}>{stat.value}</p>
+                <p className="text-xs md:text-sm text-background/50">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

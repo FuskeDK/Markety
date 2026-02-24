@@ -4,6 +4,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import StatsSection from "@/components/StatsSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import BeforeAfterSection from "@/components/BeforeAfterSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutPreview from "@/components/AboutPreview";
 import ProductSuite from "@/components/ProductSuite";
@@ -25,6 +26,7 @@ const Index = () => {
       <StatsSection />
       <FeaturesSection />
       <HowItWorksSection />
+      <BeforeAfterSection />
       <TestimonialsSection />
       <AboutPreview />
       <ProductSuite />

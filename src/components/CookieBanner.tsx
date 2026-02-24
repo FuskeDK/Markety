@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Cookie, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 
 const STORAGE_KEY = "markety-cookie-consent";
 
@@ -10,17 +8,11 @@ const CookieBanner = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) setVisible(true);
+    if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
   }, []);
 
-  const accept = () => {
-    localStorage.setItem(STORAGE_KEY, "accepted");
-    setVisible(false);
-  };
-
-  const decline = () => {
-    localStorage.setItem(STORAGE_KEY, "declined");
+  const dismiss = (value: "accepted" | "declined") => {
+    localStorage.setItem(STORAGE_KEY, value);
     setVisible(false);
   };
 
@@ -28,44 +20,32 @@ const CookieBanner = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 24 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-sm z-50"
+          exit={{ opacity: 0, y: 16 }}
+          transition={{ duration: 0.25 }}
+          className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-lg"
         >
-          <div className="bg-card border border-border rounded-2xl p-5 shadow-lg">
-            <div className="flex items-start gap-3 mb-4">
-              <Cookie className="w-5 h-5 text-purple-deep shrink-0 mt-0.5" />
-              <div className="flex-1">
-                <p className="text-sm font-bold text-foreground mb-1">We use cookies</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  We use cookies to improve your experience on our site. By continuing, you agree to our{" "}
-                  <Link to="/privacy" className="underline text-purple-deep hover:text-purple-mid transition-colors">
-                    Privacy Policy
-                  </Link>{" "}
-                  and{" "}
-                  <Link to="/terms" className="underline text-purple-deep hover:text-purple-mid transition-colors">
-                    Terms
-                  </Link>
-                  .
-                </p>
-              </div>
+          <div className="bg-foreground text-background rounded-2xl px-5 py-4 flex items-center justify-between gap-4 shadow-xl">
+            <p className="text-sm leading-snug">
+              This site uses cookies.{" "}
+              <Link to="/privacy" className="underline underline-offset-2 opacity-70 hover:opacity-100 transition-opacity">
+                Privacy Policy
+              </Link>
+            </p>
+            <div className="flex items-center gap-2 shrink-0">
               <button
-                onClick={decline}
-                aria-label="Dismiss"
-                className="text-muted-foreground hover:text-foreground transition-colors shrink-0"
+                onClick={() => dismiss("declined")}
+                className="text-xs opacity-50 hover:opacity-80 transition-opacity px-1"
               >
-                <X className="w-4 h-4" />
+                No thanks
               </button>
-            </div>
-            <div className="flex gap-2">
-              <Button size="sm" variant="hero" className="rounded-full flex-1 text-xs" onClick={accept}>
-                Accept all
-              </Button>
-              <Button size="sm" variant="outline" className="rounded-full flex-1 text-xs" onClick={decline}>
-                Decline
-              </Button>
+              <button
+                onClick={() => dismiss("accepted")}
+                className="text-xs font-semibold bg-background text-foreground rounded-full px-4 py-1.5 hover:opacity-90 transition-opacity"
+              >
+                Got it
+              </button>
             </div>
           </div>
         </motion.div>
