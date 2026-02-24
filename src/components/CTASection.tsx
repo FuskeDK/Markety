@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+
+const included = [
+  "Full lead generation system set up for your business",
+  "Paid ads campaign live and running within the first week",
+  "Daily performance tracking so you see results in real time",
+  "Direct access to your account manager throughout",
+];
 
 const CTASection = () => {
   const navigate = useNavigate();
@@ -16,20 +23,32 @@ const CTASection = () => {
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-deep mb-4">Ready to grow?</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4">
-            Let's see if we're a good fit
+            Try Markety free for 2 weeks
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            We keep our client list small so every account gets real attention. Reach out and we'll walk you through it.
+          <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
+            Not sure if we're the right fit? Start with a free 2-week trial and see exactly what we can do for your pipeline. No contracts, no commitment. Just send us a message and we'll get you set up.
           </p>
-          <Button
-            variant="hero"
-            size="lg"
-            className="rounded-full text-base px-10 py-6 font-bold w-full sm:w-auto"
-            onClick={() => navigate('/contact', { state: { scrollToForm: true } })}
-          >
-            Contact us
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
+
+          <ul className="inline-flex flex-col items-start gap-3 mb-8 text-sm text-muted-foreground">
+            {included.map((item) => (
+              <li key={item} className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-purple-deep shrink-0 mt-0.5" />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <div>
+            <Button
+              variant="hero"
+              size="lg"
+              className="rounded-full text-base px-10 py-6 font-bold w-full sm:w-auto"
+              onClick={() => navigate('/contact', { state: { scrollToForm: true } })}
+            >
+              Claim your free trial
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>
