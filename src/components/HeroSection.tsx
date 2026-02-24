@@ -52,7 +52,7 @@ const HeroSection = () => {
             Markety handles your ad campaigns, funnels, and follow ups so your sales team always has someone to talk to.
           </p>
 
-          <p className="text-xs font-semibold text-muted-foreground mb-3 tracking-wide">
+          <p className="text-xs font-semibold text-purple-deep mb-3 tracking-wide">
             Start with a free 2-week trial.
           </p>
 

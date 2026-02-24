@@ -10,7 +10,7 @@ const posts = [
     excerpt:
       "Most cold email campaigns fail because they treat everyone the same. Here's the system we use to write sequences that average a 42% open rate and actually start conversations.",
     readTime: "5 min read",
-    date: "Jan 2025",
+    date: "Jan 2026",
     content: [
       {
         heading: null,
@@ -41,7 +41,7 @@ const posts = [
     excerpt:
       "Clicks without conversions usually come down to one of four problems. We break down each one with real account examples and the exact fix we apply.",
     readTime: "4 min read",
-    date: "Dec 2024",
+    date: "Feb 2026",
     content: [
       {
         heading: null,
@@ -72,7 +72,7 @@ const posts = [
     excerpt:
       "After building hundreds of landing pages we've found the same 7 elements show up in the ones that convert above 12%. This is what they all have in common.",
     readTime: "6 min read",
-    date: "Nov 2024",
+    date: "Feb 2026",
     content: [
       {
         heading: null,
@@ -111,7 +111,7 @@ const posts = [
     excerpt:
       "The tactics from 2021 are dead. Buyers are smarter, inboxes are noisier, and ad costs are up. Here's the full-funnel approach we're using to consistently hit targets.",
     readTime: "7 min read",
-    date: "Oct 2024",
+    date: "Jan 2026",
     content: [
       {
         heading: null,

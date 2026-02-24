@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useCompaniesCount } from "@/hooks/useCompaniesCount";
 
 const platforms = [
   "Google Ads", "Meta Ads", "LinkedIn Ads", "Email Sequences",
@@ -15,6 +16,7 @@ const platforms = [
 
 const About = () => {
   const navigate = useNavigate();
+  const { data: companiesCount = 0 } = useCompaniesCount();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -154,7 +156,7 @@ const About = () => {
               { value: "$3", label: "Avg. cost per lead", compact: false },
               { value: "2 weeks", label: "Time to first lead", compact: true },
               { value: "92%", label: "Client retention", compact: false },
-              { value: "200+", label: "Companies served", compact: false },
+              { value: `${companiesCount}+`, label: "Companies served", compact: false },
             ].map((stat) => (
               <motion.div
                 key={stat.label}
