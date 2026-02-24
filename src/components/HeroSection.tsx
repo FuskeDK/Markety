@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useCompaniesCount } from "@/hooks/useCompaniesCount";
 
 const gridStyle: React.CSSProperties = {
   backgroundImage: `
@@ -20,6 +21,7 @@ const fadeStyle: React.CSSProperties = {
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const { data: companiesCount = 0 } = useCompaniesCount();
   return (
     <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={gridStyle} />
@@ -38,7 +40,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="inline-flex items-center gap-2 rounded-full badge-pill px-4 py-1.5 text-xs font-semibold mb-6"
           >
-            Trusted by 0+ companies worldwide
+            Trusted by {companiesCount}+ companies worldwide
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground mb-5 md:mb-6">

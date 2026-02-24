@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCompanyNames } from "@/hooks/useCompanyNames";
 
 const ITEMS_PER_PAGE = 4;
+const MAX_SHOWN = 10;
 
 const LogoMarquee = () => {
   const { data: names = [] } = useCompanyNames();
   const [page, setPage] = useState(0);
 
-  const logos = names.map((name) => ({ name }));
+  // Shuffle once per mount (new random order on every page refresh), cap at 10
+  const displayed = useMemo(() => {
+    const shuffled = [...names].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, MAX_SHOWN);
+  }, [names]);
+
+  const logos = displayed.map((name) => ({ name }));
 
   const pageCount = Math.ceil(logos.length / ITEMS_PER_PAGE);
   const visibleLogos = logos.slice(page * ITEMS_PER_PAGE, (page + 1) * ITEMS_PER_PAGE);
