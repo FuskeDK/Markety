@@ -76,7 +76,12 @@ const rows: { label: string; markety: Cell; diy: Cell; freelancer: Cell; agency:
   },
 ];
 
-const cols = ["Markety", "DIY / In-house", "Freelancer", "Big Agency"];
+const cols = [
+  { full: "Markety",        short: "Markety" },
+  { full: "DIY / In-house", short: "DIY"     },
+  { full: "Freelancer",     short: "Freelancer" },
+  { full: "Big Agency",     short: "Agency"  },
+];
 
 function CellContent({ cell, highlight }: { cell: Cell; highlight?: boolean }) {
   if (cell.type === "check")
@@ -113,63 +118,61 @@ const ComparisonTable = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto overflow-x-auto"
+          className="max-w-4xl mx-auto"
         >
-          <table className="w-full min-w-[600px] border-separate border-spacing-0 text-sm">
-            <thead>
-              <tr>
-                <th className="text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider pb-4 pr-4 w-1/3">
-                  Feature
-                </th>
-                {cols.map((col, i) => (
-                  <th
-                    key={col}
-                    className={`text-center pb-4 px-3 text-sm font-bold ${
-                      i === 0
-                        ? "text-purple-deep"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {i === 0 && (
-                      <span className="inline-block bg-purple-deep/10 text-purple-deep text-xs font-semibold px-3 py-1 rounded-full mb-2">
-                        Recommended
-                      </span>
-                    )}
-                    <br />
-                    {col}
+          <div className="overflow-x-auto rounded-2xl">
+            <table className="w-full border-separate border-spacing-0 text-sm" style={{ minWidth: 480 }}>
+              <thead>
+                <tr>
+                  <th className="sticky left-0 z-20 bg-background text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider pb-4 pr-3 md:pr-4 w-[38%] md:w-1/3">
+                    Feature
                   </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, idx) => (
-                <tr key={row.label} className="group">
-                  <td
-                    className={`py-3.5 pr-4 text-sm font-medium text-foreground border-t border-border ${
-                      idx === rows.length - 1 ? "border-b rounded-bl-2xl" : ""
-                    } ${idx === 0 ? "rounded-tl-2xl" : ""}`}
-                  >
-                    {row.label}
-                  </td>
-                  {(["markety", "diy", "freelancer", "agency"] as const).map((key, i) => (
-                    <td
-                      key={key}
-                      className={`py-3.5 px-3 text-center border-t border-border ${
-                        i === 0
-                          ? "bg-purple-deep/5 group-hover:bg-purple-deep/10 transition-colors"
-                          : "group-hover:bg-muted/30 transition-colors"
-                      } ${idx === 0 && i === 0 ? "rounded-tr-none" : ""}
-                      ${idx === rows.length - 1 && i === 0 ? "border-b rounded-br-2xl" : ""}
-                      ${idx === rows.length - 1 && i === 3 ? "border-b" : ""}
-                      ${idx === rows.length - 1 ? "border-b" : ""}`}
+                  {cols.map((col, i) => (
+                    <th
+                      key={col.full}
+                      className={`text-center pb-4 px-2 md:px-3 text-xs md:text-sm font-bold ${
+                        i === 0 ? "text-purple-deep" : "text-muted-foreground"
+                      }`}
                     >
-                      <CellContent cell={row[key]} highlight={i === 0} />
-                    </td>
+                      {i === 0 && (
+                        <span className="inline-block bg-purple-deep/10 text-purple-deep text-[10px] md:text-xs font-semibold px-2 md:px-3 py-1 rounded-full mb-2 whitespace-nowrap">
+                          Recommended
+                        </span>
+                      )}
+                      <br />
+                      <span className="md:hidden">{col.short}</span>
+                      <span className="hidden md:inline">{col.full}</span>
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {rows.map((row, idx) => (
+                  <tr key={row.label} className="group">
+                    <td
+                      className={`sticky left-0 z-10 bg-background py-3 md:py-3.5 pr-3 md:pr-4 text-xs md:text-sm font-medium text-foreground border-t border-border ${
+                        idx === rows.length - 1 ? "border-b" : ""
+                      }`}
+                    >
+                      {row.label}
+                    </td>
+                    {(["markety", "diy", "freelancer", "agency"] as const).map((key, i) => (
+                      <td
+                        key={key}
+                        className={`py-3 md:py-3.5 px-2 md:px-3 text-center border-t border-border ${
+                          i === 0
+                            ? "bg-purple-deep/5 group-hover:bg-purple-deep/10 transition-colors"
+                            : "group-hover:bg-muted/30 transition-colors"
+                        } ${idx === rows.length - 1 ? "border-b" : ""}`}
+                      >
+                        <CellContent cell={row[key]} highlight={i === 0} />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </motion.div>
       </div>
     </section>
