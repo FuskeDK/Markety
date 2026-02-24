@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const steps = [
   { number: "01", title: "We learn your business",  desc: "We reach out, you tell us about your customers, your sales process, and what a qualified lead looks like for you. No generic playbooks." },
-  { number: "02", title: "We build your system",    desc: "Landing pages, email sequences, and ad campaigns — all built and ready to go live before we push anything live." },
+  { number: "02", title: "We build your system",    desc: "Landing pages, email sequences, and ad campaigns. All built and ready to go live before anything is pushed." },
   { number: "03", title: "We go live and improve",  desc: "Campaigns launch and we immediately start testing. Every week we analyse what's working, cut what isn't, and put more behind what drives results." },
   { number: "04", title: "Leads arrive, you close", desc: "Your sales team gets a steady stream of people who are already interested and fully qualified. You focus on conversations. We handle everything before that." },
 ];

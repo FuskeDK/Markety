@@ -36,7 +36,7 @@ const BenefitsSection = () => {
               Built around your results
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              We don't charge retainers. Our pricing is tied directly to the leads we deliver — so we're always motivated to send you people who are actually ready to buy.
+              We don't charge retainers. Our pricing is tied directly to the leads we deliver, so we're always motivated to send you people who are actually ready to buy.
             </p>
             <div className="flex items-baseline gap-3">
               <span className="text-6xl font-extrabold text-purple-deep leading-none">$3</span>

@@ -1,21 +1,15 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const logos = [
-  { name: "No Company", initials: "" },
-  { name: "No Company", initials: "" },
-  { name: "No Company", initials: "" },
-  { name: "No Company", initials: "" },
-  { name: "No Company", initials: "" },
-  { name: "No Company", initials: "" },
-  { name: "No Company", initials: "" },
-  { name: "No Company", initials: "" },
-];
+import { useCompanyNames } from "@/hooks/useCompanyNames";
 
 const ITEMS_PER_PAGE = 4;
 
 const LogoMarquee = () => {
+  const { data: names = [] } = useCompanyNames();
   const [page, setPage] = useState(0);
+
+  const logos = names.map((name) => ({ name }));
+
   const pageCount = Math.ceil(logos.length / ITEMS_PER_PAGE);
   const visibleLogos = logos.slice(page * ITEMS_PER_PAGE, (page + 1) * ITEMS_PER_PAGE);
 
@@ -34,21 +28,23 @@ const LogoMarquee = () => {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-center gap-6">
-          <button
-            onClick={() => setPage(p => (p - 1 + pageCount) % pageCount)}
-            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <span className="text-xs text-muted-foreground">{page + 1} / {pageCount}</span>
-          <button
-            onClick={() => setPage(p => (p + 1) % pageCount)}
-            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
+        {pageCount > 1 && (
+          <div className="flex items-center justify-center gap-6">
+            <button
+              onClick={() => setPage(p => (p - 1 + pageCount) % pageCount)}
+              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <span className="text-xs text-muted-foreground">{page + 1} / {pageCount}</span>
+            <button
+              onClick={() => setPage(p => (p + 1) % pageCount)}
+              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Desktop: marquee */}

@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/accordion";
 import { useTrustpilotFiveStarCount } from "@/hooks/useTrustpilotStats";
 import { useLeadsCount } from "@/hooks/useLeadsCount";
+import { useCompaniesCount } from "@/hooks/useCompaniesCount";
 
 function CountUpNumber({
   end,
@@ -85,6 +86,8 @@ const Contact = () => {
   const location = useLocation();
   const { data: fiveStarCount = 0 } = useTrustpilotFiveStarCount();
   const { data: leadsCount = 0 } = useLeadsCount();
+  const { data: companiesCount = 0 } = useCompaniesCount();
+  const happyClients = Math.round(companiesCount * 0.9);
 
   useEffect(() => {
     if (location.state?.scrollToForm) {
@@ -165,7 +168,7 @@ const Contact = () => {
           >
             {[
               {
-                end: fiveStarCount,
+                end: happyClients,
                 format: (n: number) => `${Math.round(n)}+`,
                 label: "Happy clients",
               },

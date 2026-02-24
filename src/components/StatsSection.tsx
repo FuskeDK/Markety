@@ -1,5 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { useCompaniesCount } from "@/hooks/useCompaniesCount";
+import { useLeadsThisYear } from "@/hooks/useLeadsThisYear";
 
 function CountUpNumber({
   end,
@@ -32,13 +34,16 @@ function CountUpNumber({
   return <span ref={ref}>{format(count)}</span>;
 }
 
-const stats = [
-  { format: (n: number) => `$${(n / 100).toFixed(2)}`, end: 420, label: "Avg. cost per qualified lead" },
-  { format: (n: number) => `${Math.round(n)}+`, end: 0, label: "Companies using Markety" },
-  { format: (n: number) => `${Math.round(n)}K+`, end: 0, label: "Leads delivered this year" },
-];
-
 const StatsSection = () => {
+  const { data: companiesCount = 0 } = useCompaniesCount();
+  const { data: leadsThisYear = 0 } = useLeadsThisYear();
+
+  const stats = [
+    { format: (n: number) => `$${(n / 100).toFixed(2)}`, end: 420, label: "Avg. cost per qualified lead" },
+    { format: (n: number) => `${Math.round(n)}+`, end: companiesCount, label: "Companies using Markety" },
+    { format: (n: number) => n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, "")}K+` : `${Math.round(n)}+`, end: leadsThisYear, label: "Leads delivered this year" },
+  ];
+
   return (
     <section className="py-12 md:py-16 border-y border-border bg-muted/20">
       <div className="container mx-auto px-4">

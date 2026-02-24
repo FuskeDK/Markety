@@ -16,7 +16,7 @@ const products = [
   {
     icon: BarChart3,
     title: "Funnel Architecture",
-    desc: "We design the full path from first click to booked meeting — connecting your ads, pages, and follow ups into one system that moves people forward automatically.",
+    desc: "We design the full path from first click to booked meeting. Your ads, pages, and follow-ups connected into one system that moves people forward automatically.",
     badge: "Full-path system",
     visual: [
       { label: "Ad click", value: "100%" },
@@ -52,7 +52,7 @@ const ProductSuite = () => {
             Three services. One complete system.
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Each piece is built to work on its own — and even better together.
+            Each piece works on its own. Together they cover everything.
           </p>
         </motion.div>
 

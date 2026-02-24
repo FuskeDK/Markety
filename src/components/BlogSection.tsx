@@ -22,7 +22,7 @@ const posts = [
       },
       {
         heading: "Keep the sequence short",
-        body: "We build 4 to 6 emails sent over 10 to 14 days. The first email is always the simplest — one sentence introducing who you are, one sentence on why you're reaching out to them specifically, and one soft question or CTA. No pitch deck links, no wall of text. The follow-ups test different angles until something resonates.",
+        body: "We build 4 to 6 emails sent over 10 to 14 days. The first email is always the simplest. One sentence introducing who you are, one sentence on why you're reaching out to them specifically, and one soft question or CTA. No pitch deck links, no wall of text. The follow-ups test different angles until something resonates.",
       },
       {
         heading: "The 42% open rate formula",
@@ -61,7 +61,7 @@ const posts = [
       },
       {
         heading: "4. The conversion tracking is measuring the wrong thing",
-        body: "We've audited accounts where the conversion being optimised for was a page view, not a form submission. Google's algorithm optimises for whatever you tell it to — make sure you're telling it the right thing. Fix the tracking before you touch anything else.",
+        body: "We've audited accounts where the conversion being optimised for was a page view, not a form submission. Google's algorithm optimises for whatever you tell it to. Make sure you're telling it the right thing. Fix the tracking before you touch anything else.",
       },
     ],
   },
@@ -92,11 +92,11 @@ const posts = [
       },
       {
         heading: "Social proof above the fold",
-        body: "A review, a logo strip, a number — something that tells the visitor other people trust you before they've even read the rest of the page. Trust signals placed early do far more work than ones buried at the bottom.",
+        body: "A review, a logo strip, a number. Something that tells the visitor other people trust you before they've even read the rest of the page. Trust signals placed early do far more work than ones buried at the bottom.",
       },
       {
         heading: "Benefit-led copy",
-        body: "Not 'we use advanced targeting algorithms' — 'you only pay for leads that match your criteria.' Same thing, completely different effect. Always write from the reader's perspective, not yours.",
+        body: "Not 'we use advanced targeting algorithms' but 'you only pay for leads that match your criteria.' Same thing, completely different effect. Always write from the reader's perspective, not yours.",
       },
       {
         heading: "A short form",
@@ -123,7 +123,7 @@ const posts = [
       },
       {
         heading: "Shorter, simpler conversion paths",
-        body: "The more steps between a visitor and becoming a lead, the more you lose. Cut the steps. A form with two fields on a focused landing page beats a multi-page funnel for most B2B offers. Simplicity isn't lazy — it's one of the highest-leverage things you can do.",
+        body: "The more steps between a visitor and becoming a lead, the more you lose. Cut the steps. A form with two fields on a focused landing page beats a multi-page funnel for most B2B offers. Simplicity isn't lazy. It's one of the highest-leverage things you can do.",
       },
       {
         heading: "Content that actually answers real questions",
@@ -131,7 +131,7 @@ const posts = [
       },
       {
         heading: "Retargeting as a standard part of every campaign",
-        body: "Most people don't convert on their first visit. Running retargeting ads to people who've already shown interest is consistently one of the best uses of ad budget — high intent, lower cost per lead compared to cold traffic. If you're not doing this, you're leaving a lot on the table.",
+        body: "Most people don't convert on their first visit. Running retargeting ads to people who've already shown interest is consistently one of the best uses of ad budget. High intent, lower cost per lead compared to cold traffic. If you're not doing this, you're leaving a lot on the table.",
       },
       {
         heading: "The bottom line",

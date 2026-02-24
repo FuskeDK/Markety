@@ -62,7 +62,7 @@ const FeaturesSection = () => {
           <motion.div variants={cardVariants} className="bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 md:self-start">
             <Target className="w-5 h-5 text-purple-deep mb-4" />
             <h3 className="text-base font-bold text-foreground mb-2">Running Ads</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">Google, Meta, LinkedIn — targeted at the buyers most likely to convert.</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">Google, Meta, and LinkedIn. Targeted at the buyers most likely to convert.</p>
           </motion.div>
 
           {/* Landing Pages */}

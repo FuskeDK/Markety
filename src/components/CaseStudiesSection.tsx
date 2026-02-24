@@ -20,11 +20,11 @@ const cases = [
     challenge:
       "The client relied entirely on referrals and had no outbound system. Their sales team had empty pipelines outside of word-of-mouth.",
     solution:
-      "We built a cold email outreach system targeting mid-market finance directors, paired with a 5-step nurture sequence and a conversion-optimised landing page.",
+      "We built a cold email outreach system targeting mid-market finance directors, paired with a 5-step nurture sequence that moved prospects from cold to booked meeting automatically.",
     metrics: [
       { label: "Pipeline added",     before: "£0 outbound", after: "£68K / mo", delta: "From £0" },
       { label: "Meetings booked",    before: "0 / mo",      after: "14 / mo",   delta: "+14" },
-      { label: "Email open rate",    before: "—",           after: "44%",       delta: "44%" },
+      { label: "Email open rate",    before: "No system",   after: "44%",       delta: "44%" },
     ],
     timeframe: "45 days",
   },

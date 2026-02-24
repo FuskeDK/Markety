@@ -10,7 +10,7 @@ export const defaultPrivacy: Section[] = [
   },
   {
     title: "2. What information we collect",
-    body: "We collect information in the following ways:\n- Contact form — when you fill in our contact form we collect your name, email address, company name, and the message you send us.\n- Cookies — we use cookies to understand how visitors use our site and to improve your experience. See section 5 for details.\n- Analytics — we may collect anonymised usage data such as pages visited, time on site, and referral source.",
+    body: "We collect information in the following ways:\n- Contact form: when you fill in our contact form we collect your name, email address, company name, and the message you send us.\n- Cookies: we use cookies to understand how visitors use our site and to improve your experience. See section 5 for details.\n- Analytics: we may collect anonymised usage data such as pages visited, time on site, and referral source.",
   },
   {
     title: "3. How we use your information",
@@ -22,7 +22,7 @@ export const defaultPrivacy: Section[] = [
   },
   {
     title: "5. Cookies",
-    body: "Cookies are small text files stored in your browser. We use the following types of cookies:\n- Essential cookies — required for the website to function correctly (e.g. remembering your cookie preference).\n- Analytics cookies — help us understand how visitors interact with our site. These are only set if you accept cookies.\n\nYou can withdraw your cookie consent at any time by clearing your browser's local storage or by contacting us.",
+    body: "Cookies are small text files stored in your browser. We use the following types of cookies:\n- Essential cookies: required for the website to function correctly (e.g. remembering your cookie preference).\n- Analytics cookies: help us understand how visitors interact with our site. These are only set if you accept cookies.\n\nYou can withdraw your cookie consent at any time by clearing your browser's local storage or by contacting us.",
   },
   {
     title: "6. Data retention",
@@ -50,7 +50,7 @@ export const defaultPrivacy: Section[] = [
 export const defaultTerms: Section[] = [
   {
     title: "1. Introduction",
-    body: "These Terms & Conditions (\"Terms\") govern your use of the Markety website and any services we provide. By accessing our website or engaging our services, you agree to be bound by these Terms. If you do not agree, please do not use our site or services.\n\nMarkety operates as a digital marketing and lead generation agency. Questions about these Terms can be directed to laminey2059@gmail.com.",
+    body: "These Terms and Conditions govern your use of the Markety website and any services we provide. By accessing our website or engaging our services, you agree to be bound by these Terms. If you do not agree, please do not use our site or services.\n\nMarkety operates as a digital marketing and lead generation agency. Questions about these Terms can be directed to laminey2059@gmail.com.",
   },
   {
     title: "2. Services",
@@ -74,7 +74,7 @@ export const defaultTerms: Section[] = [
   },
   {
     title: "7. Results and guarantees",
-    body: "Markety works to deliver qualified leads as defined and agreed before an engagement begins. However, we cannot guarantee specific outcomes, revenue, or conversion rates, as results depend on factors outside our control including market conditions, your sales process, and platform performance.\n\nWe are committed to transparency: if campaigns are underperforming, we will tell you promptly and adjust our approach.",
+    body: "Markety works to deliver qualified leads as defined and agreed before an engagement begins. However, we cannot guarantee specific outcomes, revenue, or conversion rates, as results depend on factors outside our control including market conditions, your sales process, and platform performance.\n\nWe are committed to transparency. If campaigns are underperforming, we will tell you promptly and adjust our approach.",
   },
   {
     title: "8. Termination",
@@ -171,8 +171,8 @@ export function renderBody(body: string): ReactNode[] {
 
 /* ── localStorage helpers ──────────────────────────────────────────── */
 const KEYS = {
-  privacy: "markety-privacy-content",
-  terms: "markety-terms-content",
+  privacy: "markety-privacy-content-v2",
+  terms: "markety-terms-content-v2",
 } as const;
 
 export function loadContent(page: "privacy" | "terms"): Section[] {

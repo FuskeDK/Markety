@@ -5,14 +5,14 @@ const before = [
   "Chasing unqualified leads that go nowhere",
   "Wasting budget on ads with no clear ROI",
   "Sales team spending time prospecting instead of closing",
-  "Inconsistent pipeline — feast one month, famine the next",
+  "Inconsistent pipeline. Feast one month, famine the next.",
   "No system, just guessing what works",
-  "Paying $40–$80 per lead and hoping for the best",
+  "Paying $40 to $80 per lead and hoping for the best",
 ];
 
 const after = [
   "Qualified leads delivered straight to your inbox",
-  "Every dollar tracked — you know exactly what's working",
+  "Every dollar tracked. You know exactly what's working.",
   "Sales team focused on calls, demos, and closing",
   "Predictable, steady flow of leads every single month",
   "A full system running on autopilot in the background",

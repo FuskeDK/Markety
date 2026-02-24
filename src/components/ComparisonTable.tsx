@@ -69,10 +69,10 @@ const rows: { label: string; markety: Cell; diy: Cell; freelancer: Cell; agency:
   },
   {
     label: "Time to first lead",
-    markety:    { type: "text", value: "~2 weeks" },
-    diy:        { type: "text", value: "3–6 months" },
-    freelancer: { type: "text", value: "4–8 weeks" },
-    agency:     { type: "text", value: "6–12 weeks" },
+    markety:    { type: "text", value: "2 weeks" },
+    diy:        { type: "text", value: "3 to 6 months" },
+    freelancer: { type: "text", value: "4 to 8 weeks" },
+    agency:     { type: "text", value: "6 to 12 weeks" },
   },
 ];
 

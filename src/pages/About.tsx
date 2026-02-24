@@ -95,7 +95,7 @@ const About = () => {
                 {
                   period: "The decision",
                   title: "We built what didn't exist",
-                  desc: "In 2026 we launched Markety to fill the gap — a team that handles everything from first click to qualified lead, so clients never have to stitch together freelancers or agencies again.",
+                  desc: "In 2026 we launched Markety to fill the gap. A team that handles everything from first click to qualified lead, so clients never have to stitch together freelancers or agencies again.",
                 },
                 {
                   period: "Today",
@@ -279,7 +279,7 @@ const About = () => {
                 What it's like to work with us
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                We've worked with enough agencies to know what makes them frustrating. We built Markety around removing all of that — slow onboarding, vague updates, and contacts who don't know your account.
+                We've worked with enough agencies to know what makes them frustrating. Slow onboarding, vague updates, contacts who don't know your account. We built Markety to fix all of that.
               </p>
               <div className="space-y-4">
                 {[
@@ -352,10 +352,10 @@ const About = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-8 md:mb-10"
           >
             {[
-              { icon: Megaphone, title: "Paid Advertising", desc: "Google Ads, Meta, and LinkedIn — full campaign management including creative, targeting, bidding, and ongoing optimisation.", tags: ["Google Ads", "Meta Ads", "LinkedIn Ads"] },
+              { icon: Megaphone, title: "Paid Advertising", desc: "Google Ads, Meta, and LinkedIn. Full campaign management including creative, targeting, bidding, and ongoing optimisation.", tags: ["Google Ads", "Meta Ads", "LinkedIn Ads"] },
               { icon: Mail, title: "Email Marketing", desc: "Sequences that nurture leads from first opt-in to booked meeting. Written, scheduled, and automated by us.", tags: ["Drip sequences", "Re-engagement", "Cold outreach"] },
               { icon: Globe, title: "Landing Pages", desc: "Conversion-focused pages built inside your own accounts. One goal per page, no distractions.", tags: ["Lead capture", "A/B tested", "Fast load"] },
-              { icon: Zap, title: "Funnel & Automation", desc: "The full path from click to qualified lead, automated. Forms, redirects, CRM entry, and follow-up — all connected.", tags: ["CRM setup", "Lead scoring", "Automation"] },
+              { icon: Zap, title: "Funnel & Automation", desc: "The full path from click to qualified lead, automated. Forms, redirects, CRM entry, and follow-up all connected.", tags: ["CRM setup", "Lead scoring", "Automation"] },
             ].map((service) => (
               <motion.div
                 key={service.title}
