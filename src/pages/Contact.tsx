@@ -97,32 +97,42 @@ const Contact = () => {
     }
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await fetch("http://localhost:5678/webhook-test/contact-form", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain"
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          message: message
-        })
-      });
-      toast({ title: "Message sent", description: "We respond within 24 hours on business days. It can be longer if our client list is long." });
-      setName("");
-      setEmail("");
-      setMessage("");
-    } catch {
-      toast({ title: "Something went wrong", description: "Please try again or email us directly.", variant: "destructive" });
-    } finally {
-      setLoading(false);
-    }
-  };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+
+  try {
+    await fetch("http://localhost:5678/webhook-test/contact-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message
+      })
+    });
+
+    toast({
+      title: "Message sent",
+      description:
+        "We respond within 24 hours on business days. It can be longer if our client list is long."
+    });
+
+    setName("");
+    setEmail("");
+    setMessage("");
+  } catch {
+    toast({
+      title: "Something went wrong",
+      description: "Please try again or email us directly.",
+      variant: "destructive"
+    });
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-background">
