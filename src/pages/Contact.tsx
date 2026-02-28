@@ -102,6 +102,18 @@ const handleSubmit = async (e: React.FormEvent) => {
   setLoading(true);
 
   try {
+    // Lav et nyt Date objekt
+    const now = new Date();
+    // Formater datoen som "28 February 2026, 14:35"
+    const formattedDate = now.toLocaleString("en-US", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    });
+
     await fetch("http://localhost:5678/webhook-test/contact-form", {
       method: "POST",
       headers: {
@@ -110,7 +122,8 @@ const handleSubmit = async (e: React.FormEvent) => {
       body: JSON.stringify({
         name: name,
         email: email,
-        message: message
+        message: message,
+        currentDate: formattedDate // Tilføjer dato/tid til webhook
       })
     });
 
