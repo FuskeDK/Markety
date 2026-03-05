@@ -97,6 +97,27 @@ const Contact = () => {
       }, 400);
     }
     setSeoMeta("contact");
+    
+    // Add FAQPage schema for Contact page
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    };
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+    
+    return () => script.remove();
   }, [location.state?.scrollToForm]);
 
 const handleSubmit = async (e: React.FormEvent) => {
