@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -8,6 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useCompaniesCount } from "@/hooks/useCompaniesCount";
+import { setSeoMeta } from "@/lib/seo";
 
 const platforms = [
   "Google Ads", "Meta Ads", "LinkedIn Ads", "Email Sequences",
@@ -17,6 +19,11 @@ const platforms = [
 const About = () => {
   const navigate = useNavigate();
   const { data: companiesCount = 0 } = useCompaniesCount();
+
+  useEffect(() => {
+    setSeoMeta("about");
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

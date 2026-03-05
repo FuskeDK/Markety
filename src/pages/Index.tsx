@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import LogoMarquee from "@/components/LogoMarquee";
@@ -16,8 +17,13 @@ import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import { setSeoMeta } from "@/lib/seo";
 
 const Index = () => {
+  useEffect(() => {
+    setSeoMeta("home");
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

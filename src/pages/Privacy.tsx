@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { loadContent, renderBody } from "@/lib/pageContent";
+import { setSeoMeta } from "@/lib/seo";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <motion.div
@@ -18,6 +20,10 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 
 const Privacy = () => {
   const sections = loadContent("privacy");
+
+  useEffect(() => {
+    setSeoMeta("privacy");
+  }, []);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">

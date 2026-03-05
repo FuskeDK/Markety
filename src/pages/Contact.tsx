@@ -18,6 +18,7 @@ import {
 import { useTrustpilotFiveStarCount } from "@/hooks/useTrustpilotStats";
 import { useLeadsCount } from "@/hooks/useLeadsCount";
 import { useCompaniesCount } from "@/hooks/useCompaniesCount";
+import { setSeoMeta } from "@/lib/seo";
 
 function CountUpNumber({
   end,
@@ -95,7 +96,8 @@ const Contact = () => {
         document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
       }, 400);
     }
-  }, []);
+    setSeoMeta("contact");
+  }, [location.state?.scrollToForm]);
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
