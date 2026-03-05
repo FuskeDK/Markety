@@ -171,8 +171,9 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <header className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero */}
       <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 overflow-hidden">
@@ -268,7 +269,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   <Label htmlFor="message">Message *</Label>
                   <Textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="What are you looking for help with?" rows={5} required />
                 </div>
-                <Button variant="hero" className="rounded-full w-full" disabled={loading}>
+                <Button variant="hero" className="rounded-full w-full" disabled={loading} aria-label={loading ? "Sending your message..." : "Submit your message"}>
                   {loading ? "Sending..." : "Submit"}
                 </Button>
               </form>
@@ -361,8 +362,9 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
+      </header>
       <Footer />
-    </div>
+    </>
   );
 };
 

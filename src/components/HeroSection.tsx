@@ -62,6 +62,7 @@ const HeroSection = () => {
               size="lg"
               className="rounded-full text-base px-8 py-6 w-full sm:w-auto font-bold"
               onClick={() => navigate("/contact", { state: { scrollToForm: true } })}
+              aria-label="Contact us to start your lead generation"
             >
               Work with us
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -71,6 +72,7 @@ const HeroSection = () => {
               size="lg"
               className="rounded-full text-base px-8 py-6 w-full sm:w-auto"
               onClick={() => navigate("/about")}
+              aria-label="Learn more about Markety services"
             >
               Learn more
             </Button>

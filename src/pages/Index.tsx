@@ -25,26 +25,28 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection />
-      <LogoMarquee />
-      <StatsSection />
-      <FeaturesSection />
-      <HowItWorksSection />
-      <BeforeAfterSection />
-      <TestimonialsSection />
-      <AboutPreview />
-      <ProductSuite />
-      <DifferentiatorsSection />
-      <BenefitsSection />
-      <CaseStudiesSection />
-      <ComparisonTable />
-      <BlogSection />
-      <FAQSection />
-      <CTASection />
+    <>
+      <header className="min-h-screen bg-background">
+        <Navbar />
+        <HeroSection />
+        <LogoMarquee />
+        <StatsSection />
+        <FeaturesSection />
+        <HowItWorksSection />
+        <BeforeAfterSection />
+        <TestimonialsSection />
+        <AboutPreview />
+        <ProductSuite />
+        <DifferentiatorsSection />
+        <BenefitsSection />
+        <CaseStudiesSection />
+        <ComparisonTable />
+        <BlogSection />
+        <FAQSection />
+        <CTASection />
+      </header>
       <Footer />
-    </div>
+    </>
   );
 };
 
