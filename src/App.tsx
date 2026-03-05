@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -9,6 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { leadsCountQueryConfig } from "./hooks/useLeadsCount";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
+import { initializeSEOOptimizations } from "./lib/seoOptimizations";
 
 const Index    = lazy(() => import("./pages/Index"));
 const About    = lazy(() => import("./pages/About"));
@@ -31,6 +32,11 @@ queryClient.prefetchQuery(leadsCountQueryConfig);
 
 const AnimatedRoutes = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    // Initialize SEO optimizations on first load
+    initializeSEOOptimizations();
+  }, []);
 
   return (
     <AnimatePresence mode="wait">

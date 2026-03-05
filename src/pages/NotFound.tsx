@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +7,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const NotFound = () => {
+  useEffect(() => {
+    // Set proper meta tags for 404 page
+    document.title = "Page Not Found | Markety";
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta) {
+      descMeta.setAttribute('content', 'This page could not be found. Return to Markety home page or contact us for help.');
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />

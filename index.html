@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1a1a2e" />
+    
+    <!-- Performance: Preconnect to critical domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.vercel-analytics.com" />
+    
     <link rel="canonical" href="https://markety2.vercel.app/" />
     
     <title>Markety | Lead Generation Platform - Get Qualified Leads on Autopilot</title>
@@ -77,6 +83,48 @@
           "item": "https://markety2.vercel.app/contact"
         }
       ]
+    }
+    </script>
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Lead Generation Services",
+      "description": "Complete lead generation platform handling paid advertising, landing pages, email sequences, and lead management for B2B companies",
+      "provider": {
+        "@type": "Organization",
+        "name": "Markety",
+        "url": "https://markety2.vercel.app"
+      },
+      "areaServed": ["US", "CA", "AU", "GB", "EU"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Lead Generation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Email Marketing Sequences",
+            "description": "Automated email follow-up campaigns with 42% average open rate"
+          },
+          {
+            "@type": "Offer",
+            "name": "Paid Advertising",
+            "description": "Google Ads, Meta, and LinkedIn campaigns targeted at qualified buyers"
+          },
+          {
+            "@type": "Offer",
+            "name": "Landing Pages",
+            "description": "High-converting landing pages optimized for lead capture and conversion"
+          },
+          {
+            "@type": "Offer",
+            "name": "Lead Tracking & Management",
+            "description": "Full lead scoring, routing, and attribution with live dashboards"
+          }
+        ]
+      }
     }
     </script>
 </head>
