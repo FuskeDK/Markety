@@ -25,8 +25,9 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <header className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero */}
       <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 overflow-hidden">
@@ -465,6 +466,7 @@ const About = () => {
               size="lg"
               className="rounded-full text-base px-10 py-6 font-bold w-full sm:w-auto"
               onClick={() => navigate('/contact', { state: { scrollToForm: true } })}
+              aria-label="Get in touch with Markety"
             >
               Get in touch
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -472,9 +474,10 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+      </header>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

@@ -12,7 +12,10 @@ async function fetchCompanyNames(): Promise<string[]> {
   if (!jsonStr) return [];
 
   const data = JSON.parse(jsonStr);
-  const rows: any[] = data?.table?.rows ?? [];
+  interface SheetRow {
+    c?: Array<{ v: unknown } | null>;
+  }
+  const rows: SheetRow[] = data?.table?.rows ?? [];
 
   return rows
     .map((row) => row?.c?.[0]?.v)           // first column (A)

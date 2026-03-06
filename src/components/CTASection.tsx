@@ -44,6 +44,7 @@ const CTASection = () => {
               size="lg"
               className="rounded-full text-base px-10 py-6 font-bold w-full sm:w-auto"
               onClick={() => navigate('/contact', { state: { scrollToForm: true } })}
+              aria-label="Claim your free 2-week trial"
             >
               Claim your free trial
               <ArrowRight className="w-4 h-4 ml-2" />

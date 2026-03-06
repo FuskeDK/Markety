@@ -17,8 +17,12 @@ async function fetchCompaniesCount(): Promise<number> {
   const rows: unknown[] = data?.table?.rows ?? [];
 
   // Count rows that have at least one filled cell
-  const filled = rows.filter((row: any) =>
-    row?.c?.some((cell: any) => cell !== null && cell?.v !== null && cell?.v !== "")
+  interface SheetRow {
+    c?: Array<{ v: unknown } | null>;
+  }
+  
+  const filled = rows.filter((row: SheetRow) =>
+    row?.c?.some((cell: { v: unknown } | null) => cell !== null && cell?.v !== null && cell?.v !== "")
   );
 
   return filled.length;

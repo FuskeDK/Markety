@@ -12,7 +12,10 @@ async function fetchLeadsThisYear(): Promise<number> {
   if (!jsonStr) return 0;
 
   const data = JSON.parse(jsonStr);
-  const rows: any[] = data?.table?.rows ?? [];
+  interface SheetRow {
+    c?: Array<{ v: unknown } | null>;
+  }
+  const rows: SheetRow[] = data?.table?.rows ?? [];
   const currentYear = new Date().getFullYear();
 
   return rows.filter((row) => {

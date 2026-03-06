@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
     );
     observer.observe(el);
 
-    let initRaf = requestAnimationFrame(() => {
+    const initRaf = requestAnimationFrame(() => {
       const oneSetWidth = el.scrollWidth / 3;
       if (oneSetWidth < 100) return;
       el.scrollLeft = oneSetWidth;

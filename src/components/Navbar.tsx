@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500" style={{ width: scrolled ? "88%" : "95%", maxWidth: scrolled ? "900px" : "1024px" }}>
       <div className="bg-card/80 backdrop-blur-xl border border-border rounded-2xl px-6 py-3 flex items-center justify-between transition-all duration-500">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/Markety.png" alt="Markety" className="h-9 w-auto object-top" />
+          <img src="/Markety.png" alt="Markety - Lead Generation Platform" className="h-9 w-auto object-top" />
           <span className="text-lg font-bold text-foreground">Markety</span>
         </Link>
 
@@ -30,12 +30,12 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="hero" size="sm" className="rounded-full px-5" onClick={() => navigate("/contact", { state: { scrollToForm: true } })}>
+          <Button variant="hero" size="sm" className="rounded-full px-5" onClick={() => navigate("/contact", { state: { scrollToForm: true } })} aria-label="Contact us for a free consultation">
             Contact us
           </Button>
         </div>
 
-        <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={isOpen}>
           {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
               <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>Home</Link>
               <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>About</Link>
               <Link to="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>Contact</Link>
-              <Button variant="hero" size="sm" className="rounded-full" onClick={() => { navigate("/contact", { state: { scrollToForm: true } }); setIsOpen(false); }}>Contact us</Button>
+              <Button variant="hero" size="sm" className="rounded-full" onClick={() => { navigate("/contact", { state: { scrollToForm: true } }); setIsOpen(false); }} aria-label="Contact us for a free consultation">Contact us</Button>
             </div>
           </motion.div>
         )}
