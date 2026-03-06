@@ -26,7 +26,7 @@ const About = () => {
 
   return (
     <>
-      <header className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background">
         <Navbar />
 
       {/* Hero */}
@@ -474,8 +474,7 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-      </header>
-
+      </main>
       <Footer />
     </>
   );
