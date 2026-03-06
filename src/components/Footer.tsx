@@ -39,9 +39,24 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-foreground mb-4">Legal</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="hover:text-foreground transition-colors">Terms & Conditions</a></li>
+              <li><a href="/terms" className="hover:text-foreground transition-colors">Terms &amp; Conditions</a></li>
             </ul>
           </div>
+        </div>
+
+        {/* Contact Info */}
+        <div className="border-t border-border pt-8 pb-4">
+          <address className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-sm text-muted-foreground not-italic">
+            <span className="flex items-center gap-2">
+              <strong>Email:</strong> laminey2059@gmail.com
+            </span>
+            <span className="flex items-center gap-2">
+              <strong>Phone:</strong> +45 12 34 56 78
+            </span>
+            <span className="flex items-center gap-2">
+              <strong>Location:</strong> Denmark, DK
+            </span>
+          </address>
         </div>
 
         {/* Bottom */}
