@@ -27,7 +27,7 @@ const Terms = () => {
 
   return (
     <>
-      <header className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background">
         <Navbar />
 
         <main className="flex-1 pt-32 pb-20">
@@ -52,7 +52,7 @@ const Terms = () => {
             </div>
           </div>
         </main>
-      </header>
+      </div>
 
       <Footer />
     </>

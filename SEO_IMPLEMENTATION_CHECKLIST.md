@@ -17,6 +17,10 @@
 - ✅ Robots meta tag set to "index, follow"
 - ✅ Google Site Verification meta tag preserved
 
+### Semantic HTML ✅
+- ✅ Replaced `<header>` wrappers with `<main>` wrappers for all primary page content
+- ✅ Replaced `<header>` wrappers with `<div>` for pages containing existing `<main>` elements to prevent nested main errors
+
 ### Structured Data (Schema Markup) ✅
 - ✅ Organization schema (with contact point)
 - ✅ BreadcrumbList schema (site hierarchy)

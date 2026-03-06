@@ -172,7 +172,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   return (
     <>
-      <header className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background">
         <Navbar />
 
       {/* Hero */}
@@ -362,7 +362,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-      </header>
+      </main>
       <Footer />
     </>
   );

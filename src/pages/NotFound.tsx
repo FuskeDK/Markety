@@ -17,7 +17,7 @@ const NotFound = () => {
   }, []);
   return (
     <>
-      <header className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background">
         <Navbar />
         <main className="flex-1 flex items-center justify-center py-24 px-4">
           <motion.div
@@ -51,7 +51,7 @@ const NotFound = () => {
             </div>
           </motion.div>
         </main>
-      </header>
+      </div>
       <Footer />
     </>
   );
