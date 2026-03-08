@@ -9,6 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.vercel-analytics.com" />
+    <!-- Load fonts non-blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Preload critical images to reduce layout shift and speed up LCP -->
+    <link rel="preload" as="image" href="/Markety.png">
+    <link rel="preload" as="image" href="/MarketySquare.png">
     
     <link rel="canonical" href="https://markety2.vercel.app/" />
     

@@ -6,7 +6,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/Markety.png" alt="Markety Logo" className="h-10 w-auto" />
+              <img src="/Markety.png" alt="Markety Logo" className="h-10 w-auto" loading="lazy" />
               <span className="text-lg font-bold text-foreground">Markety</span>
             </div>
             <p className="text-sm text-muted-foreground">Lead generation platform that handles your entire pipeline so you can focus on closing deals.</p>
