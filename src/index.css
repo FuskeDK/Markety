@@ -186,3 +186,9 @@
 @media (max-width: 768px) {
   html { -webkit-text-size-adjust: 100%; }
 }
+
+/* Smooth scrolling for in-page navigation and programmatic scrolls */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
