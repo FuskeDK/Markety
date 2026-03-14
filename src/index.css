@@ -165,7 +165,7 @@
 
   .reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
   .reveal-up { transform: translateY(12px); }
@@ -184,13 +184,19 @@
 
   .reveal .reveal-target.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
   .reveal-left .reveal-target { transform: translateX(-12px); }
   .reveal-right .reveal-target { transform: translateX(12px); }
   .reveal-zoom .reveal-target { transform: scale(0.98); }
   .reveal-zoom .reveal-target.revealed { transform: none; }
+
+  /* Strong variant for more pronounced translation */
+  .reveal-strong.reveal-left { transform: translateX(-36px); }
+  .reveal-strong.reveal-right { transform: translateX(36px); }
+  .reveal-strong .reveal-target { transform: translateY(18px); }
+  .reveal-strong .reveal-target.revealed { transform: none; }
 
   /* Respect reduced motion for reveals */ 
   @media (prefers-reduced-motion: reduce) {

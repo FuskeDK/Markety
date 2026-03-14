@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, BarChart3, Globe } from "lucide-react";
+import RevealOnScroll from "@/components/ui/reveal-on-scroll";
 
 const products = [
   {
@@ -56,51 +57,54 @@ const ProductSuite = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="max-w-5xl mx-auto divide-y divide-border"
-        >
-          {products.map((product, i) => (
-            <motion.div
-              key={product.title}
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
-              className={`py-8 md:py-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center`}
-            >
-              {/* Text side */}
-              <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                <div className="flex items-center gap-3 mb-5">
-                  <product.icon className="w-5 h-5 text-purple-deep shrink-0" />
-                  <span className="badge-pill text-xs font-semibold px-3 py-1 rounded-full">
-                    {product.badge}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-extrabold text-foreground mb-3">{product.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{product.desc}</p>
-              </div>
-
-              {/* Visual panel */}
-              <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                <div className="bg-muted/50 border border-border rounded-2xl p-5 md:p-6 space-y-3">
-                  {product.visual.map((row) => (
-                    <div
-                      key={row.label}
-                      className="flex items-center justify-between bg-card border border-border rounded-xl px-4 py-3"
-                    >
-                      <span className="text-sm text-muted-foreground">{row.label}</span>
-                      <span className="text-sm font-bold text-purple-deep">{row.value}</span>
+        <div className="max-w-5xl mx-auto divide-y divide-border">
+          {products.map((product, i) => {
+            const direction: "left" | "right" = i === 1 ? "right" : "left";
+            return (
+              <RevealOnScroll
+                key={product.title}
+                threshold={1}
+                rootMargin="0px"
+                once
+                direction={direction}
+                stagger={60}
+                className="py-8 md:py-12 reveal-strong"
+              >
+                <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center`}>
+                  {/* Text side */}
+                  <div className={i % 2 === 1 ? "md:order-2" : ""}>
+                    <div className="flex items-center gap-3 mb-5">
+                      <product.icon className="w-5 h-5 text-purple-deep shrink-0" />
+                      <span className="badge-pill text-xs font-semibold px-3 py-1 rounded-full">
+                        {product.badge}
+                      </span>
                     </div>
-                  ))}
-                  <div className="hidden md:flex justify-end pt-1 opacity-10">
-                    <product.icon className="w-16 h-16 text-purple-deep" />
+                    <h3 className="text-2xl font-extrabold text-foreground mb-3">{product.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{product.desc}</p>
+                  </div>
+
+                  {/* Visual panel */}
+                  <div className={i % 2 === 1 ? "md:order-1" : ""}>
+                    <div className="bg-muted/50 border border-border rounded-2xl p-5 md:p-6 space-y-3">
+                      {product.visual.map((row) => (
+                        <div
+                          key={row.label}
+                          className="flex items-center justify-between bg-card border border-border rounded-xl px-4 py-3"
+                        >
+                          <span className="text-sm text-muted-foreground">{row.label}</span>
+                          <span className="text-sm font-bold text-purple-deep">{row.value}</span>
+                        </div>
+                      ))}
+                      <div className="hidden md:flex justify-end pt-1 opacity-10">
+                        <product.icon className="w-16 h-16 text-purple-deep" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </RevealOnScroll>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

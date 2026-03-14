@@ -61,9 +61,7 @@ const Index = () => {
           <AboutPreview />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={280} direction="right" stagger={40}>
-          <ProductSuite />
-        </RevealOnScroll>
+        <ProductSuite />
 
         <RevealOnScroll delay={300} direction="left" stagger={40}>
           <DifferentiatorsSection />
