@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@vercel/speed-insights/next": path.resolve(__dirname, "./node_modules/@vercel/speed-insights/dist/react/index.mjs"),
     },
   },
   build: {
