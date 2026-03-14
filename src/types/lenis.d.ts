@@ -1,5 +1,5 @@
 declare module 'lenis' {
-  interface LenisOptions {
+  export interface LenisOptions {
     duration?: number;
     easing?: (t: number) => number;
     smoothWheel?: boolean;

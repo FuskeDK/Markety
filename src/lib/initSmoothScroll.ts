@@ -4,13 +4,6 @@ let initted = false;
 
 type LenisConstructor = new (options?: LenisOptions) => LenisInstance;
 
-declare global {
-  interface Window {
-    __lenis?: LenisInstance;
-    requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => void;
-  }
-}
-
 export async function initSmoothScrolling(): Promise<void> {
   if (typeof window === "undefined" || initted) return;
   initted = true;
@@ -20,12 +13,22 @@ export async function initSmoothScrolling(): Promise<void> {
     try {
       mod = await import("lenis");
     } catch (err) {
-      // Fallback to CDN if package not installed
-      try {
-        mod = await import("https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.mjs");
-      } catch (err2) {
-        // Try skypack as a last resort
-        mod = await import("https://cdn.skypack.dev/lenis");
+      // Fallback to CDN if package not installed — use variable imports so
+      // TypeScript won't try to resolve literal URL module specifiers.
+      const fallbackUrls = [
+        "https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.mjs",
+        "https://cdn.skypack.dev/lenis",
+      ];
+      for (const url of fallbackUrls) {
+        try {
+          // @vite-ignore: prevent Vite from pre-bundling this dynamic URL import
+             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+             // @ts-ignore - external URL import may not have types
+          mod = await import(/* @vite-ignore */ url);
+          if (mod) break;
+        } catch {
+          // ignore and try next
+        }
       }
     }
 
