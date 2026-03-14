@@ -33,59 +33,59 @@ const Index = () => {
           <HeroSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={80}>
+        <RevealOnScroll delay={80} direction="right" stagger={16}>
           <LogoMarquee />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={120}>
+        <RevealOnScroll delay={120} stagger={100}>
           <StatsSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={160}>
+        <RevealOnScroll delay={160} direction="left" stagger={60}>
           <FeaturesSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={200}>
+        <RevealOnScroll delay={200} direction="right" stagger={60}>
           <HowItWorksSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={220}>
+        <RevealOnScroll delay={220} direction="zoom" stagger={50}>
           <BeforeAfterSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={240}>
+        <RevealOnScroll delay={240} direction="zoom" stagger={80}>
           <TestimonialsSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={260}>
+        <RevealOnScroll delay={260} direction="left" stagger={40}>
           <AboutPreview />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={280}>
+        <RevealOnScroll delay={280} direction="right" stagger={40}>
           <ProductSuite />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={300}>
+        <RevealOnScroll delay={300} direction="left" stagger={40}>
           <DifferentiatorsSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={320}>
+        <RevealOnScroll delay={320} stagger={40}>
           <BenefitsSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={340}>
+        <RevealOnScroll delay={340} direction="left" stagger={50}>
           <CaseStudiesSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={360}>
+        <RevealOnScroll delay={360} direction="none" stagger={30}>
           <ComparisonTable />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={380}>
+        <RevealOnScroll delay={380} direction="right" stagger={60}>
           <BlogSection />
         </RevealOnScroll>
 
-        <RevealOnScroll delay={400}>
+        <RevealOnScroll delay={400} stagger={30}>
           <FAQSection />
         </RevealOnScroll>
 
