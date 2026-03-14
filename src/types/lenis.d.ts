@@ -11,8 +11,8 @@ declare module 'lenis' {
   class Lenis {
     constructor(options?: LenisOptions);
     raf(time?: number): void;
-    on(event: string, cb: (...args: any[]) => void): void;
-    off(event: string, cb?: (...args: any[]) => void): void;
+    on(event: string, cb: (...args: unknown[]) => void): void;
+    off(event: string, cb?: (...args: unknown[]) => void): void;
     destroy(): void;
   }
 

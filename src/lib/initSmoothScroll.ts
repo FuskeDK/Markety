@@ -1,10 +1,22 @@
+import type { Lenis as LenisInstance, LenisOptions } from "lenis";
+
 let initted = false;
+
+type LenisConstructor = new (options?: LenisOptions) => LenisInstance;
+
+declare global {
+  interface Window {
+    __lenis?: LenisInstance;
+    requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => void;
+  }
+}
 
 export async function initSmoothScrolling(): Promise<void> {
   if (typeof window === "undefined" || initted) return;
   initted = true;
+
   try {
-    let mod: any;
+    let mod: unknown;
     try {
       mod = await import("lenis");
     } catch (err) {
@@ -16,9 +28,11 @@ export async function initSmoothScrolling(): Promise<void> {
         mod = await import("https://cdn.skypack.dev/lenis");
       }
     }
-    const Lenis = (mod as any).Lenis || (mod as any).default || mod;
 
-    const lenis = new Lenis({
+    const imported = mod as { default?: LenisConstructor; Lenis?: LenisConstructor } | undefined;
+    const LenisCtor = (imported?.Lenis ?? imported?.default ?? (mod as unknown)) as unknown as LenisConstructor;
+
+    const lenis = new LenisCtor({
       duration: 1.2,
       easing: (t: number) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
@@ -33,10 +47,9 @@ export async function initSmoothScrolling(): Promise<void> {
     }
 
     requestAnimationFrame(raf);
-    (window as any).__lenis = lenis;
-  } catch (err) {
+    window.__lenis = lenis;
+  } catch (err: unknown) {
     // Loading is optional — fail gracefully
-    // eslint-disable-next-line no-console
     console.warn("initSmoothScrolling: failed to load lenis:", err);
   }
 }

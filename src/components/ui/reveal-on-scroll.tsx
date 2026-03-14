@@ -47,11 +47,13 @@ const RevealOnScroll: React.FC<RevealProps> = ({
   const dirClass =
     direction === "left" ? "reveal-left" : direction === "right" ? "reveal-right" : direction === "none" ? "reveal-none" : "reveal-up";
 
+  const cssVarStyle = { ["--reveal-delay"]: `${delay}ms` } as unknown as React.CSSProperties;
+
   return (
     <div
       ref={ref}
       className={`reveal ${dirClass} ${revealed ? "revealed" : ""} ${className}`.trim()}
-      style={{ ["--reveal-delay" as any]: `${delay}ms` }}
+      style={cssVarStyle}
     >
       {children}
     </div>

@@ -27,8 +27,8 @@ function setupLazySmoothScroll() {
 	document.addEventListener("pointerdown", trigger, { passive: true, once: true } as AddEventListenerOptions);
 	document.addEventListener("keydown", trigger, { once: true } as AddEventListenerOptions);
 
-	if (typeof window !== "undefined" && (window as any).requestIdleCallback) {
-		(window as any).requestIdleCallback(() => initSmoothScrolling(), { timeout: 2000 });
+	if (typeof window !== "undefined" && "requestIdleCallback" in window && typeof window.requestIdleCallback === "function") {
+		(window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout?: number }) => void }).requestIdleCallback(() => initSmoothScrolling(), { timeout: 2000 });
 	} else {
 		// Fallback to a small timeout so it loads soon after interactive.
 		setTimeout(() => initSmoothScrolling(), 2000);
