@@ -1,4 +1,4 @@
-declare module '@studio-freight/lenis' {
+declare module 'lenis' {
   interface LenisOptions {
     duration?: number;
     easing?: (t: number) => number;

@@ -6,14 +6,14 @@ export async function initSmoothScrolling(): Promise<void> {
   try {
     let mod: any;
     try {
-      mod = await import("@studio-freight/lenis");
+      mod = await import("lenis");
     } catch (err) {
       // Fallback to CDN if package not installed
       try {
-        mod = await import("https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/dist/lenis.mjs");
+        mod = await import("https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.mjs");
       } catch (err2) {
         // Try skypack as a last resort
-        mod = await import("https://cdn.skypack.dev/@studio-freight/lenis");
+        mod = await import("https://cdn.skypack.dev/lenis");
       }
     }
     const Lenis = (mod as any).Lenis || (mod as any).default || mod;
