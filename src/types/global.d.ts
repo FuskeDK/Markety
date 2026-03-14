@@ -6,5 +6,7 @@ declare global {
   interface Window {
     __lenis?: LenisInstance;
     requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => void;
+    __initLenis?: () => void;
+    __revealAll?: () => void;
   }
 }

@@ -21,13 +21,30 @@ export async function initSmoothScrolling(): Promise<void> {
       ];
       for (const url of fallbackUrls) {
         try {
-          // @vite-ignore: prevent Vite from pre-bundling this dynamic URL import
-             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-             // @ts-ignore - external URL import may not have types
-          mod = await import(/* @vite-ignore */ url);
-          if (mod) break;
-        } catch {
-          // ignore and try next
+          // Download the external module and import it via a blob URL. This
+          // avoids bundler/TS server issues with literal external import
+          // specifiers and doesn't require ts-ignore comments.
+          const resp = await fetch(url);
+          if (!resp.ok) continue;
+          const src = await resp.text();
+          const blob = new Blob([src], { type: "application/javascript" });
+          const blobUrl = URL.createObjectURL(blob);
+          try {
+            mod = await import(/* @vite-ignore */ blobUrl);
+            if (mod) {
+              URL.revokeObjectURL(blobUrl);
+              break;
+            }
+          } finally {
+            // ensure we revoke if import failed or succeeded
+            try {
+                URL.revokeObjectURL(blobUrl);
+              } catch (e) {
+                void e;
+              }
+          }
+        } catch (e) {
+          void e; // ignore and try next
         }
       }
     }
@@ -35,22 +52,28 @@ export async function initSmoothScrolling(): Promise<void> {
     const imported = mod as { default?: LenisConstructor; Lenis?: LenisConstructor } | undefined;
     const LenisCtor = (imported?.Lenis ?? imported?.default ?? (mod as unknown)) as unknown as LenisConstructor;
 
-    const lenis = new LenisCtor({
-      duration: 1.2,
-      easing: (t: number) => 1 - Math.pow(1 - t, 3),
-      smoothWheel: true,
-      smoothTouch: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    if (typeof LenisCtor !== "function") {
+      console.warn("initSmoothScrolling: lenis constructor not found on imported module", { mod });
+      return;
     }
 
-    requestAnimationFrame(raf);
-    window.__lenis = lenis;
+    try {
+      const lenis = new LenisCtor({
+        duration: 1.2,
+        easing: (t: number) => 1 - Math.pow(1 - t, 3),
+        smoothWheel: true,
+        smoothTouch: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        autoRaf: true, // let Lenis manage its own RAF
+      });
+
+      const win = window as unknown as { lenisVersion?: unknown };
+      console.info("initSmoothScrolling: lenis initialized", { version: win.lenisVersion ?? null });
+      window.__lenis = lenis;
+    } catch (err2) {
+      console.warn("initSmoothScrolling: failed to construct Lenis", err2);
+    }
   } catch (err: unknown) {
     // Loading is optional — fail gracefully
     console.warn("initSmoothScrolling: failed to load lenis:", err);

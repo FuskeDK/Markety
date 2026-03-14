@@ -6,6 +6,7 @@ declare module 'lenis' {
     smoothTouch?: boolean;
     wheelMultiplier?: number;
     touchMultiplier?: number;
+    autoRaf?: boolean;
   }
 
   class Lenis {

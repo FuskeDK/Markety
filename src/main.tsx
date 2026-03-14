@@ -28,11 +28,18 @@ function setupLazySmoothScroll() {
 	document.addEventListener("keydown", trigger, { once: true } as AddEventListenerOptions);
 
 	if (typeof window !== "undefined" && "requestIdleCallback" in window && typeof window.requestIdleCallback === "function") {
-		(window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout?: number }) => void }).requestIdleCallback(() => initSmoothScrolling(), { timeout: 2000 });
+				(window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout?: number }) => void }).requestIdleCallback(() => initSmoothScrolling(), { timeout: 500 });
 	} else {
 		// Fallback to a small timeout so it loads soon after interactive.
-		setTimeout(() => initSmoothScrolling(), 2000);
+				setTimeout(() => initSmoothScrolling(), 500);
 	}
 }
 
 setupLazySmoothScroll();
+
+// Expose dev helpers so you can force-init Lenis or reveal elements from the console.
+// Usage: `window.__initLenis()` or `window.__revealAll()`
+(window as unknown as Window).__initLenis = initSmoothScrolling;
+(window as unknown as Window).__revealAll = () => {
+	document.querySelectorAll(".reveal").forEach((el) => el.classList.add("revealed"));
+};
