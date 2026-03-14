@@ -21,21 +21,20 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          "vendor-react":   ["react", "react-dom", "react-router-dom"],
-          "vendor-motion":  ["framer-motion"],
-          "vendor-query":   ["@tanstack/react-query"],
-          "vendor-radix":   [
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-dropdown-menu",
-            "@radix-ui/react-label",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-select",
-            "@radix-ui/react-slot",
-            "@radix-ui/react-tabs",
-            "@radix-ui/react-tooltip",
-          ],
+        manualChunks(id: string) {
+          if (!id.includes('node_modules')) return;
+          if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+            return 'vendor-react';
+          }
+          if (id.includes('framer-motion')) {
+            return 'vendor-motion';
+          }
+          if (id.includes('@tanstack/react-query')) {
+            return 'vendor-query';
+          }
+          if (id.includes('@radix-ui')) {
+            return 'vendor-radix';
+          }
         },
       },
     },
