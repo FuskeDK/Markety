@@ -43,7 +43,7 @@ const CompanyInfoForm = () => {
         service,
       };
 
-      await fetch("http://localhost:5678/webhook-test/company-info", {
+      await fetch("http://localhost:5678/webhook-test/contact-form-2", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -51,6 +51,9 @@ const CompanyInfoForm = () => {
 
       toast({ title: "Thanks — info received", description: "We've sent your company details to our team." });
       setSubmitted(true);
+
+      // Redirect to the confirmation page and show the submitted company info there
+      navigate("/contact/sent", { state: { ...payload } });
     } catch (err) {
       toast({ title: "Something went wrong", description: "Please try again.", variant: "destructive" });
     } finally {
@@ -96,49 +99,49 @@ const CompanyInfoForm = () => {
               <p className="text-muted-foreground mb-6">This helps us prepare before our first call — it only takes 2–3 minutes.</p>
             </motion.div>
 
-            <div className="max-w-2xl mx-auto mt-8 bg-card border border-border rounded-2xl p-6">
-              {!submitted ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Label htmlFor="companyName">Company name *</Label>
-                    <Input id="companyName" value={companyName} onChange={(e) => setCompanyName(e.target.value)} required />
-                  </div>
+                  <div className="max-w-2xl mx-auto mt-8 bg-card border border-border rounded-2xl p-6">
+                    {!submitted ? (
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                          <Label htmlFor="companyName">Company name *</Label>
+                          <Input id="companyName" value={companyName} onChange={(e) => setCompanyName(e.target.value)} required />
+                        </div>
 
-                  <div>
-                    <Label htmlFor="cvr">CVR number (optional)</Label>
-                    <Input id="cvr" value={cvr} onChange={(e) => setCvr(e.target.value)} placeholder="12345678" />
-                  </div>
+                        <div>
+                          <Label htmlFor="cvr">CVR number (optional)</Label>
+                          <Input id="cvr" value={cvr} onChange={(e) => setCvr(e.target.value)} placeholder="12345678" />
+                        </div>
 
-                  <div>
-                    <Label htmlFor="companyDescription">What does your company do? *</Label>
-                    <Textarea id="companyDescription" value={companyDescription} onChange={(e) => setCompanyDescription(e.target.value)} rows={4} required />
-                  </div>
+                        <div>
+                          <Label htmlFor="companyDescription">What does your company do? *</Label>
+                          <Textarea id="companyDescription" value={companyDescription} onChange={(e) => setCompanyDescription(e.target.value)} rows={4} required />
+                        </div>
 
-                  <div>
-                    <Label htmlFor="goals">What do you want to achieve? *</Label>
-                    <Textarea id="goals" value={goals} onChange={(e) => setGoals(e.target.value)} rows={3} required />
-                  </div>
+                        <div>
+                          <Label htmlFor="goals">What do you want to achieve? *</Label>
+                          <Textarea id="goals" value={goals} onChange={(e) => setGoals(e.target.value)} rows={3} required />
+                        </div>
 
-                  <div>
-                    <Label htmlFor="service">Which service are you interested in? *</Label>
-                    <Input id="service" value={service} onChange={(e) => setService(e.target.value)} placeholder="e.g. Lead Generation, Ads Management" required />
-                  </div>
+                        <div>
+                          <Label htmlFor="service">Which service are you interested in? *</Label>
+                          <Input id="service" value={service} onChange={(e) => setService(e.target.value)} placeholder="e.g. Lead Generation, Ads Management" required />
+                        </div>
 
-                  <div className="flex gap-4 mt-4">
-                    <Button type="submit" disabled={loading}>{loading ? 'Sending…' : 'Send company info'}</Button>
-                    <Button variant="ghost" onClick={() => navigate("/")}>Back to home</Button>
+                        <div className="flex gap-4 mt-4">
+                          <Button type="submit" variant="hero" size="sm" className="rounded-full px-5" disabled={loading}>{loading ? 'Sending…' : 'Send company info'}</Button>
+                          <Button variant="ghost" className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/")}>Back to home</Button>
+                        </div>
+                      </form>
+                    ) : (
+                      <div className="text-center">
+                        <h3 className="text-lg font-semibold">Thanks — we got it</h3>
+                        <p className="text-muted-foreground mt-2">Our team will review this and get back to you within one business day.</p>
+                        <div className="mt-4">
+                          <Button variant="ghost" className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/")}>Back to home</Button>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </form>
-              ) : (
-                <div className="text-center">
-                  <h3 className="text-lg font-semibold">Thanks — we got it</h3>
-                  <p className="text-muted-foreground mt-2">Our team will review this and get back to you within one business day.</p>
-                  <div className="mt-4">
-                    <Button onClick={() => navigate("/")}>Back to home</Button>
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
         </section>
       </main>

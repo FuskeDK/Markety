@@ -19,6 +19,13 @@ const ContactSent = () => {
     email?: string;
     message?: string;
     currentDate?: string;
+    token?: string;
+    form_url?: string;
+    companyName?: string;
+    cvr?: string;
+    companyDescription?: string;
+    goals?: string;
+    service?: string;
   };
 
   return (
@@ -57,12 +64,26 @@ const ContactSent = () => {
                     <p className="text-xs text-muted-foreground mt-2">This link is unique to you — please do not share it.</p>
                   </div>
                 )}
+
+                {state.companyName && (
+                  <div className="mt-4 border-t border-border pt-4">
+                    <p className="text-sm font-semibold mb-2">Company details (submitted)</p>
+                    <p><strong>Company name:</strong> {state.companyName}</p>
+                    <p><strong>CVR:</strong> {state.cvr ?? "—"}</p>
+                    <div className="mt-2">
+                      <p className="font-semibold">Description</p>
+                      <p className="whitespace-pre-wrap bg-muted p-3 rounded-md mt-1 text-sm">{state.companyDescription ?? "—"}</p>
+                    </div>
+                    <p className="mt-2"><strong>Goals:</strong> {state.goals ?? "—"}</p>
+                    <p className="mt-1"><strong>Service requested:</strong> {state.service ?? "—"}</p>
+                  </div>
+                )}
               </div>
             </div>
 
             <div className="max-w-2xl mx-auto mt-6 flex gap-4">
               <Button variant="ghost" onClick={() => navigate("/contact")}>Send another message</Button>
-              <Button onClick={() => navigate("/")}>Back to home</Button>
+              <Button variant="ghost" className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/")}>Back to home</Button>
             </div>
           </div>
         </section>
