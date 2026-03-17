@@ -49,6 +49,14 @@ const ContactSent = () => {
                   <p className="whitespace-pre-wrap bg-muted p-3 rounded-md mt-1 text-sm">{state.message ?? "—"}</p>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2"><strong>Sent:</strong> {state.currentDate ?? "—"}</p>
+
+                {state.form_url && (
+                  <div className="mt-3">
+                    <p className="font-semibold">Complete the company info form</p>
+                    <a className="text-purple-deep underline break-words" href={state.form_url} target="_blank" rel="noopener noreferrer">{state.form_url}</a>
+                    <p className="text-xs text-muted-foreground mt-2">This link is unique to you — please do not share it.</p>
+                  </div>
+                )}
               </div>
             </div>
 

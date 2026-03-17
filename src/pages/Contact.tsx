@@ -136,11 +136,26 @@ const handleSubmit = async (e: React.FormEvent) => {
       hour12: false,
     });
 
+    // Generate a unique token for this lead (uses browser crypto when available)
+    let token: string;
+    try {
+      const cryptoWithUUID = window.crypto as Crypto & { randomUUID?: () => string };
+      token = cryptoWithUUID.randomUUID?.() ?? `${Date.now().toString(36)}-${Math.random()
+        .toString(36)
+        .slice(2, 9)}`;
+    } catch {
+      token = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`;
+    }
+
+    const formUrl = `${window.location.origin}/company-info/${token}`;
+
     const bodyPayload = {
       name,
       email,
       message,
       currentDate: formattedDate,
+      token,
+      form_url: formUrl,
     };
 
     await fetch("http://localhost:5678/webhook-test/contact-form", {

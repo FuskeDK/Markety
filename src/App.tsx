@@ -16,6 +16,7 @@ const Index    = lazy(() => import("./pages/Index"));
 const About    = lazy(() => import("./pages/About"));
 const Contact  = lazy(() => import("./pages/Contact"));
 const ContactSent = lazy(() => import("./pages/ContactSent"));
+const CompanyInfoForm = lazy(() => import("./pages/CompanyInfoForm"));
 const Privacy  = lazy(() => import("./pages/Privacy"));
 const Terms    = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -55,6 +56,7 @@ const AnimatedRoutes = () => {
             <Route path="/about"   element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/contact/sent" element={<ContactSent />} />
+            <Route path="/company-info/:token" element={<CompanyInfoForm />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms"   element={<Terms />} />
             <Route path="*"        element={<NotFound />} />
