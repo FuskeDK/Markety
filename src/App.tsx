@@ -15,6 +15,7 @@ import { initializeSEOOptimizations } from "./lib/seoOptimizations";
 const Index    = lazy(() => import("./pages/Index"));
 const About    = lazy(() => import("./pages/About"));
 const Contact  = lazy(() => import("./pages/Contact"));
+const ContactSent = lazy(() => import("./pages/ContactSent"));
 const Privacy  = lazy(() => import("./pages/Privacy"));
 const Terms    = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -53,6 +54,7 @@ const AnimatedRoutes = () => {
             <Route path="/"        element={<Index />} />
             <Route path="/about"   element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/contact/sent" element={<ContactSent />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms"   element={<Terms />} />
             <Route path="*"        element={<NotFound />} />

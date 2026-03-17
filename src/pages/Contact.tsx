@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -85,6 +85,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const location = useLocation();
+  const navigate = useNavigate();
   const { data: fiveStarCount = 0 } = useTrustpilotFiveStarCount();
   const { data: leadsCount = 0 } = useLeadsCount();
   const { data: companiesCount = 0 } = useCompaniesCount();
@@ -125,48 +126,51 @@ const handleSubmit = async (e: React.FormEvent) => {
   setLoading(true);
 
   try {
-    // Lav et nyt Date objekt
     const now = new Date();
-    // Formater datoen som "28 February 2026, 14:35"
     const formattedDate = now.toLocaleString("en-US", {
       day: "numeric",
       month: "long",
       year: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-      hour12: false
+      hour12: false,
     });
+
+    const bodyPayload = {
+      name,
+      email,
+      message,
+      currentDate: formattedDate,
+    };
 
     await fetch("http://localhost:5678/webhook-test/contact-form", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        message: message,
-        currentDate: formattedDate // Tilføjer dato/tid til webhook
-      })
+      body: JSON.stringify(bodyPayload),
     });
 
     toast({
       title: "Message sent",
       description:
-        "We respond within 24 hours on business days. It can be longer if our client list is long."
+        "We respond within 24 hours on business days. It can be longer if our client list is long.",
     });
 
+    // Clear local fields and navigate to a confirmation page that shows submitted data
     setName("");
     setEmail("");
     setMessage("");
+    setLoading(false);
+
+    navigate("/contact/sent", { state: bodyPayload });
   } catch {
+    setLoading(false);
     toast({
       title: "Something went wrong",
       description: "Please try again or email us directly.",
-      variant: "destructive"
+      variant: "destructive",
     });
-  } finally {
-    setLoading(false);
   }
 };
 
