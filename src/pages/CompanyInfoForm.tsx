@@ -43,7 +43,7 @@ const CompanyInfoForm = () => {
         service,
       };
 
-      await fetch("http://localhost:5678/webhook-test/contact-form", {
+      await fetch("http://localhost:5678/webhook-test/contact-form-2", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
