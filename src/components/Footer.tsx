@@ -62,7 +62,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-border pt-6">
           <p className="text-sm text-muted-foreground text-center">
-            © 2026 Markety. All rights reserved. | Helping B2B companies generate qualified leads on autopilot.
+            © 2026 Markety. All rights reserved. | Helping companies generate qualified leads on autopilot.
           </p>
         </div>
       </div>

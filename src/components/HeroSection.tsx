@@ -44,7 +44,7 @@ const HeroSection = () => {
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground mb-5 md:mb-6">
-            We generate B2B leads.
+            We generate leads.
             <br />You close deals.
           </h1>
 
