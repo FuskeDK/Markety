@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     q: "What types of businesses do you work with?",
-    a: "Mostly B2B companies that have a sales team in place. Agencies, professional services, SaaS, and similar. We need a clear target customer and a process for closing deals. If that's you, we're likely a good fit.",
+    a: "Mostly companies that have a sales team in place. Agencies, professional services, SaaS, and similar. We need a clear target customer and a process for closing deals. If that's you, we're likely a good fit.",
   },
   {
     q: "Do you run the ads inside my accounts or yours?",
@@ -97,7 +97,8 @@ const Contact = () => {
         document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
       }, 400);
     }
-    setSeoMeta("contact");
+    setSeoMeta("contact");
+
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -132,7 +133,8 @@ const handleSubmit = async (e: React.FormEvent) => {
       hour: "2-digit",
       minute: "2-digit",
       hour12: false,
-    });
+    });
+
     let token: string;
     try {
       const cryptoWithUUID = window.crypto as Crypto & { randomUUID?: () => string };
@@ -166,7 +168,8 @@ const handleSubmit = async (e: React.FormEvent) => {
       title: "Message sent",
       description:
         "We respond within 24 hours on business days. It can be longer if our client list is long.",
-    });
+    });
+
     setName("");
     setEmail("");
     setMessage("");
