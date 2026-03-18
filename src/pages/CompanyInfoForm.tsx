@@ -49,7 +49,7 @@ const CompanyInfoForm = () => {
         body: JSON.stringify(payload),
       });
 
-      toast({ title: "Thanks — info received", description: "We've sent your company details to our team." });
+      toast({ title: "Thanks, info received", description: "We've sent your company details to our team." });
       setSubmitted(true);
 
       // Redirect to the confirmation page and show the submitted company info there
@@ -96,7 +96,7 @@ const CompanyInfoForm = () => {
             >
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">Company info</p>
               <h1 className="text-3xl font-extrabold text-foreground mb-4">A few quick details about your company</h1>
-              <p className="text-muted-foreground mb-6">This helps us prepare before our first call — it only takes 2–3 minutes.</p>
+              <p className="text-muted-foreground mb-6">This helps us prepare before our first call. It only takes 2–3 minutes.</p>
             </motion.div>
 
                   <div className="max-w-2xl mx-auto mt-8 bg-card border border-border rounded-2xl p-6">
@@ -134,7 +134,7 @@ const CompanyInfoForm = () => {
                       </form>
                     ) : (
                       <div className="text-center">
-                        <h3 className="text-lg font-semibold">Thanks — we got it</h3>
+                        <h3 className="text-lg font-semibold">Thanks, we got it</h3>
                         <p className="text-muted-foreground mt-2">Our team will review this and get back to you within one business day.</p>
                         <div className="mt-4">
                           <Button variant="ghost" className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/")}>Back to home</Button>
