@@ -83,8 +83,10 @@ const ContactSent = () => {
 
             <div className="max-w-2xl mx-auto mt-6 flex gap-4">
               <Button
-                variant="ghost"
-                onClick={() => (state.token ? navigate(`/company-info/${state.token}`) : navigate("/contact"))}
+                variant="hero"
+                size="sm"
+                className="rounded-full px-5"
+                onClick={() => navigate("/contact")}
               >
                 Send another message
               </Button>
