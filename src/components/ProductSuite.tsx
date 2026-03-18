@@ -63,8 +63,8 @@ const ProductSuite = () => {
             return (
               <RevealOnScroll
                 key={product.title}
-                threshold={1}
-                rootMargin="0px"
+                // Use the component defaults for threshold/rootMargin so
+                // reveal triggers reliably on small screens
                 once
                 direction={direction}
                 stagger={60}
