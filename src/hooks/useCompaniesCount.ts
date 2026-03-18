@@ -9,18 +9,16 @@ async function fetchCompaniesCount(): Promise<number> {
 
   const text = await res.text();
 
-  // Strip the /*O_o*/ wrapper Google wraps around the JSON
   const jsonStr = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\)/)?.[1];
   if (!jsonStr) return 0;
 
   const data = JSON.parse(jsonStr);
   const rows: unknown[] = data?.table?.rows ?? [];
 
-  // Count rows that have at least one filled cell
   interface SheetRow {
     c?: Array<{ v: unknown } | null>;
   }
-  
+
   const filled = rows.filter((row: SheetRow) =>
     row?.c?.some((cell: { v: unknown } | null) => cell !== null && cell?.v !== null && cell?.v !== "")
   );

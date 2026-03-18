@@ -165,7 +165,7 @@ const BlogSection = () => {
         <div className="max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             {expanded === null ? (
-              /* ── Grid view ── */
+
               <motion.div
                 key="grid"
                 initial={{ opacity: 0 }}
@@ -211,7 +211,7 @@ const BlogSection = () => {
                 ))}
               </motion.div>
             ) : (
-              /* ── Expanded article view ── */
+
               <motion.div
                 key="expanded"
                 initial={{ opacity: 0, y: 12 }}
@@ -220,7 +220,7 @@ const BlogSection = () => {
                 transition={{ duration: 0.25 }}
                 className="bg-card border border-border rounded-2xl p-8 md:p-10"
               >
-                {/* Back button */}
+                {}
                 <button
                   onClick={() => setExpanded(null)}
                   className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors duration-200 mb-7"
@@ -229,7 +229,7 @@ const BlogSection = () => {
                   Back to articles
                 </button>
 
-                {/* Meta */}
+                {}
                 <div className="flex items-center gap-3 mb-5">
                   <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${posts[expanded].tagColor}`}>
                     {posts[expanded].tag}
@@ -241,12 +241,12 @@ const BlogSection = () => {
                   <span className="text-xs text-muted-foreground">{posts[expanded].date}</span>
                 </div>
 
-                {/* Title */}
+                {}
                 <h2 className="text-2xl md:text-3xl font-extrabold text-foreground leading-snug mb-8">
                   {posts[expanded].title}
                 </h2>
 
-                {/* Article body */}
+                {}
                 <div className="flex flex-col gap-6">
                   {posts[expanded].content.map((section, i) => (
                     <div key={i}>
@@ -262,7 +262,7 @@ const BlogSection = () => {
                   ))}
                 </div>
 
-                {/* Bottom CTA */}
+                {}
                 <div className="mt-10 pt-7 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <p className="text-sm text-muted-foreground">
                     Want us to build this for you?

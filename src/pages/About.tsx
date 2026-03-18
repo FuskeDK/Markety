@@ -29,7 +29,7 @@ const About = () => {
       <main className="min-h-screen bg-background">
         <Navbar />
 
-      {/* Hero */}
+      {}
       <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[500px] pointer-events-none" style={{
           backgroundImage: `
@@ -61,7 +61,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Story */}
+      {}
       <section className="py-14 md:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
@@ -88,7 +88,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Timeline - dots properly centered on the line */}
+            {}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -121,14 +121,14 @@ const About = () => {
                   transition={{ delay: 0.15 + i * 0.15 }}
                   className="flex gap-5"
                 >
-                  {/* Dot + line column */}
+                  {}
                   <div className="flex flex-col items-center shrink-0">
                     <div className="w-3.5 h-3.5 rounded-full bg-purple-deep ring-2 ring-purple-deep/25 border-2 border-background mt-1 shrink-0" />
                     {i < arr.length - 1 && (
                       <div className="flex-1 w-px bg-border mt-2 mb-0 min-h-[40px]" />
                     )}
                   </div>
-                  {/* Content */}
+                  {}
                   <div className={`pb-10 ${i === arr.length - 1 ? "pb-0" : ""}`}>
                     <p className="text-[11px] font-bold text-purple-deep uppercase tracking-[0.18em] mb-1">{item.period}</p>
                     <h3 className="text-base font-bold text-foreground mb-1.5">{item.title}</h3>
@@ -141,7 +141,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Numbers */}
+      {}
       <section className="py-14 md:py-20 bg-foreground">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
@@ -179,7 +179,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Milestones */}
+      {}
       <section className="py-14 md:py-20 bg-muted/50">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
@@ -216,7 +216,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values - clean 3-col grid with vertical dividers */}
+      {}
       <section className="py-14 md:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
@@ -275,7 +275,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* How we work with clients */}
+      {}
       <section className="py-14 md:py-20 bg-muted/50">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -306,7 +306,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Client journey card */}
+            {}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -336,7 +336,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Platforms & Services */}
+      {}
       <section className="py-14 md:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
@@ -386,7 +386,7 @@ const About = () => {
             ))}
           </motion.div>
 
-          {/* Platform pill strip */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -402,7 +402,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* What sets us apart */}
+      {}
       <section className="py-14 md:py-20 bg-muted/50">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
@@ -446,7 +446,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {}
       <section className="py-14 md:py-20">
         <div className="container mx-auto px-4">
           <motion.div

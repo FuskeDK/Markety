@@ -32,7 +32,7 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4"
         >
-          {/* Featured - Email Marketing */}
+          {}
           <motion.div
             variants={cardVariants}
             className="md:col-span-2 relative bg-card border border-purple-deep/25 rounded-2xl p-6 md:p-8 overflow-hidden"
@@ -58,35 +58,35 @@ const FeaturesSection = () => {
             </div>
           </motion.div>
 
-          {/* Running Ads */}
+          {}
           <motion.div variants={cardVariants} className="bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300 md:self-start">
             <Target className="w-5 h-5 text-purple-deep mb-4" />
             <h3 className="text-base font-bold text-foreground mb-2">Running Ads</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">Google, Meta, and LinkedIn. Targeted at the buyers most likely to convert.</p>
           </motion.div>
 
-          {/* Landing Pages */}
+          {}
           <motion.div variants={cardVariants} className="bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300">
             <Globe className="w-5 h-5 text-purple-deep mb-4" />
             <h3 className="text-base font-bold text-foreground mb-2">Landing Pages</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">Focused pages built around one goal: turning clicks into leads.</p>
           </motion.div>
 
-          {/* Lead Tracking */}
+          {}
           <motion.div variants={cardVariants} className="bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300">
             <Users className="w-5 h-5 text-purple-deep mb-4" />
             <h3 className="text-base font-bold text-foreground mb-2">Lead Tracking</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">Every lead scored and routed to the right person with full source context.</p>
           </motion.div>
 
-          {/* Sales Funnels */}
+          {}
           <motion.div variants={cardVariants} className="bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300">
             <Zap className="w-5 h-5 text-purple-deep mb-4" />
             <h3 className="text-base font-bold text-foreground mb-2">Sales Funnels</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">The full path from first ad to booked meeting, built around how you sell.</p>
           </motion.div>
 
-          {/* Ad Copy - full width */}
+          {}
           <motion.div
             variants={cardVariants}
             className="md:col-span-3 bg-muted/50 border border-border rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center gap-5"

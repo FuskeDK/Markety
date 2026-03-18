@@ -22,7 +22,7 @@ const HowItWorksSection = () => {
           <p className="text-muted-foreground max-w-lg mx-auto">Four steps and you're live. No months of onboarding, no complicated handoffs.</p>
         </motion.div>
 
-        {/* Desktop: horizontal process */}
+        {}
         <div className="hidden md:block max-w-5xl mx-auto">
           <motion.div
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
@@ -48,7 +48,7 @@ const HowItWorksSection = () => {
           </motion.div>
         </div>
 
-        {/* Mobile: vertical timeline */}
+        {}
         <div className="md:hidden relative pl-10 max-w-lg mx-auto">
           <div className="absolute left-3 top-2 bottom-2 w-px bg-border" />
           {steps.map((step, i) => (

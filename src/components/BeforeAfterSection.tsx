@@ -41,7 +41,7 @@ const BeforeAfterSection = () => {
         </motion.div>
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0">
-          {/* Before */}
+          {}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -71,7 +71,7 @@ const BeforeAfterSection = () => {
             </ul>
           </motion.div>
 
-          {/* After */}
+          {}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}

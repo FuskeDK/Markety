@@ -71,7 +71,7 @@ const ProductSuite = () => {
                 className="py-8 md:py-12 reveal-strong"
               >
                 <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center`}>
-                  {/* Text side */}
+                  {}
                   <div className={i % 2 === 1 ? "md:order-2" : ""}>
                     <div className="flex items-center gap-3 mb-5">
                       <product.icon className="w-5 h-5 text-purple-deep shrink-0" />
@@ -83,7 +83,7 @@ const ProductSuite = () => {
                     <p className="text-muted-foreground leading-relaxed">{product.desc}</p>
                   </div>
 
-                  {/* Visual panel */}
+                  {}
                   <div className={i % 2 === 1 ? "md:order-1" : ""}>
                     <div className="bg-muted/50 border border-border rounded-2xl p-5 md:p-6 space-y-3">
                       {product.visual.map((row) => (

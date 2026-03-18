@@ -97,9 +97,7 @@ const Contact = () => {
         document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
       }, 400);
     }
-    setSeoMeta("contact");
-    
-    // Add FAQPage schema for Contact page
+    setSeoMeta("contact");
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -112,12 +110,12 @@ const Contact = () => {
         }
       }))
     };
-    
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(faqSchema);
     document.head.appendChild(script);
-    
+
     return () => script.remove();
   }, [location.state?.scrollToForm]);
 
@@ -134,9 +132,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       hour: "2-digit",
       minute: "2-digit",
       hour12: false,
-    });
-
-    // Generate a unique token for this lead (uses browser crypto when available)
+    });
     let token: string;
     try {
       const cryptoWithUUID = window.crypto as Crypto & { randomUUID?: () => string };
@@ -170,9 +166,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       title: "Message sent",
       description:
         "We respond within 24 hours on business days. It can be longer if our client list is long.",
-    });
-
-    // Clear local fields and navigate to a confirmation page that shows submitted data
+    });
     setName("");
     setEmail("");
     setMessage("");
@@ -194,7 +188,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       <main className="min-h-screen bg-background">
         <Navbar />
 
-      {/* Hero */}
+      {}
       <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[580px] pointer-events-none" style={{
           backgroundImage: `
@@ -225,7 +219,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             </p>
           </motion.div>
 
-          {/* Stats */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -263,7 +257,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-      {/* Contact Form + Info */}
+      {}
       <section id="contact-form" className="py-14 md:py-20 bg-muted/50 border-t border-border">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
@@ -345,7 +339,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-      {/* FAQ */}
+      {}
       <section className="py-14 md:py-20 border-t border-border">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">

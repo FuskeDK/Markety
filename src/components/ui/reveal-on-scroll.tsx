@@ -34,10 +34,8 @@ const RevealOnScroll: React.FC<RevealProps> = ({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setRevealed(true);
-            // handle staggered children if requested
-            if ((stagger ?? 0) > 0) {
-              // choose targets: prefer explicit selector, otherwise choose children
+            setRevealed(true);
+            if ((stagger ?? 0) > 0) {
               let targets: HTMLElement[] = [];
               if (targetSelector) {
                 const found = node.querySelectorAll(targetSelector);
@@ -47,9 +45,7 @@ const RevealOnScroll: React.FC<RevealProps> = ({
                 const rootChildren = Array.from(node.children) as HTMLElement[];
                 if (rootChildren.length > 1) targets = rootChildren;
                 else if (rootChildren.length === 1) targets = Array.from(rootChildren[0].children) as HTMLElement[];
-              }
-
-              // Fallback to reveal wrapper itself
+              }
               if (!targets.length) targets = [node as HTMLElement];
 
               const baseDelay = delay ?? 0;
@@ -68,8 +64,7 @@ const RevealOnScroll: React.FC<RevealProps> = ({
 
             if (once && node) observer.unobserve(node);
           } else if (!once) {
-            setRevealed(false);
-            // if staggered children were used, remove revealed class
+            setRevealed(false);
             if ((stagger ?? 0) > 0) {
               const targets = node.querySelectorAll(".reveal-target");
               targets.forEach((t) => t.classList.remove("revealed"));

@@ -1,4 +1,4 @@
-// SEO metadata configuration for each page
+
 export const seoMetadata = {
   home: {
     title: "Markety | Lead Generation Platform - Get Qualified Leads on Autopilot",
@@ -25,25 +25,17 @@ export const seoMetadata = {
     description: "Review Markety's terms of service to understand the terms governing your use of our platform.",
     keywords: "terms of service, terms and conditions",
   },
-};
-
-// Function to set page title and meta description dynamically
+};
 export const setSeoMeta = (key: keyof typeof seoMetadata) => {
-  const meta = seoMetadata[key];
-  
-  // Update title
-  document.title = meta.title;
-  
-  // Update or create meta description
+  const meta = seoMetadata[key];
+  document.title = meta.title;
   let descMeta = document.querySelector('meta[name="description"]');
   if (!descMeta) {
     descMeta = document.createElement('meta');
     descMeta.setAttribute('name', 'description');
     document.head.appendChild(descMeta);
   }
-  descMeta.setAttribute('content', meta.description);
-  
-  // Update or create keywords meta
+  descMeta.setAttribute('content', meta.description);
   let keywordsMeta = document.querySelector('meta[name="keywords"]');
   if (!keywordsMeta) {
     keywordsMeta = document.createElement('meta');

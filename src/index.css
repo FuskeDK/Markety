@@ -94,23 +94,23 @@
 }
 
 @layer utilities {
-  /* ── Solid icon container ── */
+
   .icon-bg {
     background-color: hsl(var(--purple-deep));
   }
 
-  /* ── Badge pill ── */
+
   .badge-pill {
     background: hsl(var(--purple-light));
     border: 1px solid hsl(var(--purple-mid) / 0.35);
     color: hsl(var(--purple-deep));
   }
 
-  /* ── Hide scrollbar ── */
+
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-  /* ── Custom scrollbar ── */
+
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -135,13 +135,13 @@
     background: transparent;
   }
 
-  /* Firefox */
+
   * {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--purple-mid) / 0.5) hsl(var(--muted));
   }
 
-  /* ── Marquee ── */
+
   .animate-marquee {
     animation: marquee 35s linear infinite;
   }
@@ -150,11 +150,11 @@
     animation: marquee-reverse 35s linear infinite;
   }
 
-  /* ── Float ── */
+
   .animate-float {
     animation: float 5s ease-in-out infinite;
   }
-  /* ── Reveal on scroll ── */
+
   .reveal {
     opacity: 0;
     transform: translateY(12px);
@@ -173,7 +173,7 @@
   .reveal-right { transform: translateX(12px); }
   .reveal-none { transform: none; }
 
-  /* Reveal targets (for staggered reveals inside a section) */
+
   .reveal .reveal-target {
     opacity: 0;
     transform: translateY(12px);
@@ -192,13 +192,13 @@
   .reveal-zoom .reveal-target { transform: scale(0.98); }
   .reveal-zoom .reveal-target.revealed { transform: none; }
 
-  /* Strong variant for more pronounced translation */
+
   .reveal-strong.reveal-left { transform: translateX(-36px); }
   .reveal-strong.reveal-right { transform: translateX(36px); }
   .reveal-strong .reveal-target { transform: translateY(18px); }
   .reveal-strong .reveal-target.revealed { transform: none; }
 
-  /* Respect reduced motion for reveals */ 
+
   @media (prefers-reduced-motion: reduce) {
     .reveal, .reveal.revealed {
       transition: none !important;
@@ -223,7 +223,7 @@
   50%       { transform: translateY(-10px); }
 }
 
-/* ── Respect reduced motion ── */
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -232,12 +232,12 @@
   }
 }
 
-/* ── Mobile base: prevent iOS font scaling & ensure comfortable tap targets ── */
+
 @media (max-width: 768px) {
   html { -webkit-text-size-adjust: 100%; }
 }
 
-/* Smooth scrolling for in-page navigation and programmatic scrolls */
+
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;

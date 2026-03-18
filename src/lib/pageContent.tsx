@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export type Section = { title: string; body: string };
 
-/* ── Default privacy content ───────────────────────────────────────── */
+
 export const defaultPrivacy: Section[] = [
   {
     title: "1. Who we are",
@@ -46,7 +46,7 @@ export const defaultPrivacy: Section[] = [
   },
 ];
 
-/* ── Default terms content ─────────────────────────────────────────── */
+
 export const defaultTerms: Section[] = [
   {
     title: "1. Introduction",
@@ -102,7 +102,7 @@ export const defaultTerms: Section[] = [
   },
 ];
 
-/* ── Body renderer ─────────────────────────────────────────────────── */
+
 function linkify(text: string): ReactNode {
   const parts = text.split(/(https?:\/\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g);
   if (parts.length === 1) return text;
@@ -169,7 +169,7 @@ export function renderBody(body: string): ReactNode[] {
   return result;
 }
 
-/* ── localStorage helpers ──────────────────────────────────────────── */
+
 const KEYS = {
   privacy: "markety-privacy-content-v2",
   terms: "markety-terms-content-v2",
@@ -179,7 +179,7 @@ export function loadContent(page: "privacy" | "terms"): Section[] {
   try {
     const stored = localStorage.getItem(KEYS[page]);
     if (stored) return JSON.parse(stored) as Section[];
-  } catch { /* ignore */ }
+  } catch {  }
   return page === "privacy" ? defaultPrivacy : defaultTerms;
 }
 

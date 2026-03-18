@@ -75,7 +75,7 @@ const CaseStudiesSection = () => {
               variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.45 } } }}
               className="bg-card border border-border rounded-2xl p-6 flex flex-col gap-5"
             >
-              {/* Header */}
+              {}
               <div className="flex items-start justify-between">
                 <span className="text-xs font-semibold text-purple-deep bg-purple-deep/10 px-2.5 py-1 rounded-full">
                   {c.industry}
@@ -86,19 +86,19 @@ const CaseStudiesSection = () => {
                 </div>
               </div>
 
-              {/* Challenge */}
+              {}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1.5">The problem</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{c.challenge}</p>
               </div>
 
-              {/* Solution */}
+              {}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1.5">What we did</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{c.solution}</p>
               </div>
 
-              {/* Metrics */}
+              {}
               <div className="border-t border-border pt-4 mt-auto">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">Results</p>
                 <div className="flex flex-col gap-2.5">

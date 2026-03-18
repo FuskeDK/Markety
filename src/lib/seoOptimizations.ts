@@ -1,22 +1,15 @@
-// SEO Performance Optimization Utility
-export const initializeSEOOptimizations = () => {
-  // Add preload/prefetch hints for critical resources
+
+export const initializeSEOOptimizations = () => {
   const addLinkHint = (rel: 'preload' | 'prefetch' | 'dns-prefetch', href: string, as?: string) => {
     const link = document.createElement('link');
     link.rel = rel;
     link.href = href;
     if (as) link.as = as;
     document.head.appendChild(link);
-  };
-
-  // DNS Prefetch for third-party services
+  };
   addLinkHint('dns-prefetch', 'https://fonts.googleapis.com');
-  addLinkHint('dns-prefetch', 'https://fonts.gstatic.com');
-
-  // Preload critical fonts
-  addLinkHint('preload', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap', 'style');
-
-  // Optimize images - add lazy loading to all images
+  addLinkHint('dns-prefetch', 'https://fonts.gstatic.com');
+  addLinkHint('preload', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap', 'style');
   if ('IntersectionObserver' in window) {
     const images = document.querySelectorAll('img[loading="lazy"]');
     images.forEach((img) => {
@@ -24,15 +17,10 @@ export const initializeSEOOptimizations = () => {
         img.setAttribute('loading', 'lazy');
       }
     });
-  }
-
-  // Remove non-critical rendering resources
-  // This helps with Core Web Vitals
+  }
   addLinkHint('prefetch', '/about');
   addLinkHint('prefetch', '/contact');
-};
-
-// Add JSON-LD Organization schema dynamically
+};
 export const addOrganizationSchema = () => {
   const schema = {
     "@context": "https://schema.org",
@@ -57,9 +45,7 @@ export const addOrganizationSchema = () => {
   script.type = 'application/ld+json';
   script.textContent = JSON.stringify(schema);
   document.head.appendChild(script);
-};
-
-// Add WebSite schema with search action
+};
 export const addWebsiteSchema = () => {
   const schema = {
     "@context": "https://schema.org",

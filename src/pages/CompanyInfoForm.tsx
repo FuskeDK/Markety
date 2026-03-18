@@ -52,7 +52,6 @@ const CompanyInfoForm = () => {
       toast({ title: "Thanks, info received", description: "We've sent your company details to our team." });
       setSubmitted(true);
 
-      // Redirect to the confirmation page and show the submitted company info there
       navigate("/contact/sent", { state: { ...payload } });
     } catch (err) {
       toast({ title: "Something went wrong", description: "Please try again.", variant: "destructive" });

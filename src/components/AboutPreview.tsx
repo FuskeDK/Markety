@@ -62,7 +62,7 @@ const AboutPreview = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
-          {/* Left - text */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ const AboutPreview = () => {
             </div>
           </motion.div>
 
-          {/* Right - dashboard-style card */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const AboutPreview = () => {
             transition={{ delay: 0.15 }}
             className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm"
           >
-            {/* Header bar */}
+            {}
             <div className="bg-purple-deep px-6 py-4 flex items-center justify-between">
               <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">Performance overview</p>
               <div className="flex gap-1.5">
@@ -106,7 +106,7 @@ const AboutPreview = () => {
               </div>
             </div>
 
-            {/* Stat rows with bars */}
+            {}
             <motion.div
               variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
               initial="hidden"
@@ -139,7 +139,7 @@ const AboutPreview = () => {
               ))}
             </motion.div>
 
-            {/* Footer note */}
+            {}
             <div className="px-6 py-4 bg-muted/50 border-t border-border">
               <p className="text-xs text-muted-foreground">Updated weekly · All data from live accounts</p>
             </div>

@@ -24,11 +24,9 @@ async function fetchLeadsThisYear(): Promise<number> {
 
     const val = String(cell.v);
 
-    // gviz returns dates as "Date(2024,0,15)"
     const dateMatch = val.match(/^Date\((\d{4}),/);
     if (dateMatch) return parseInt(dateMatch[1]) === currentYear;
 
-    // Fallback: plain year string or number e.g. "2024" or 2024
     const year = parseInt(val);
     return !isNaN(year) && year === currentYear;
   }).length;

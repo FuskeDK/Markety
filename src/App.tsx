@@ -36,8 +36,7 @@ queryClient.prefetchQuery(leadsCountQueryConfig);
 const AnimatedRoutes = () => {
   const location = useLocation();
 
-  useEffect(() => {
-    // Initialize SEO optimizations on first load
+  useEffect(() => {
     initializeSEOOptimizations();
   }, []);
 

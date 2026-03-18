@@ -38,7 +38,7 @@ const testimonials = [
 const SPEED = 0.5;
 
 const TestimonialsSection = () => {
-  // ── Mobile state ──
+
   const [current, setCurrent] = useState(0);
   const prev = () => setCurrent(i => (i - 1 + testimonials.length) % testimonials.length);
   const next = () => setCurrent(i => (i + 1) % testimonials.length);
@@ -52,7 +52,6 @@ const TestimonialsSection = () => {
     else if (delta > 50) prev();
   };
 
-  // ── Desktop: RAF auto-scroll + drag + momentum ──
   const scrollRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
   const drag = useRef({ active: false, startX: 0, startScroll: 0 });
@@ -66,7 +65,6 @@ const TestimonialsSection = () => {
 
     let visible = false;
 
-    // Pause the RAF loop when the section is scrolled out of view
     const observer = new IntersectionObserver(
       ([entry]) => { visible = entry.isIntersecting; },
       { threshold: 0 }
@@ -161,7 +159,7 @@ const TestimonialsSection = () => {
         </motion.div>
       </div>
 
-      {/* Mobile */}
+      {}
       <div className="md:hidden container mx-auto px-4" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <div className="bg-card border border-border rounded-2xl p-6">
           <div className="flex gap-0.5 mb-4">
@@ -189,7 +187,7 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      {/* Desktop */}
+      {}
       <div className="hidden md:block relative">
         <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />

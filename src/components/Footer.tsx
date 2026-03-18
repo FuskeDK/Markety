@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="border-t border-border py-14 bg-muted/20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
-          {/* Brand */}
+          {}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img src="/Markety.png" alt="Markety Logo" className="h-10 w-auto" loading="lazy" />
@@ -12,7 +12,7 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">Lead generation platform that handles your entire pipeline so you can focus on closing deals.</p>
           </div>
 
-          {/* Navigation */}
+          {}
           <div>
             <h3 className="text-sm font-semibold text-foreground mb-4">Navigation</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -23,7 +23,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {}
           <div>
             <h3 className="text-sm font-semibold text-foreground mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -34,7 +34,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal */}
+          {}
           <div>
             <h3 className="text-sm font-semibold text-foreground mb-4">Legal</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact Info */}
+        {}
         <div className="border-t border-border pt-8 pb-4">
           <address className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 text-sm text-muted-foreground not-italic">
             <span className="flex items-center gap-2">
@@ -59,7 +59,7 @@ const Footer = () => {
           </address>
         </div>
 
-        {/* Bottom */}
+        {}
         <div className="border-t border-border pt-6">
           <p className="text-sm text-muted-foreground text-center">
             © 2026 Markety. All rights reserved. | Helping companies generate qualified leads on autopilot.

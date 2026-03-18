@@ -7,8 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const NotFound = () => {
-  useEffect(() => {
-    // Set proper meta tags for 404 page
+  useEffect(() => {
     document.title = "Page Not Found | Markety";
     const descMeta = document.querySelector('meta[name="description"]');
     if (descMeta) {
@@ -26,7 +25,7 @@ const NotFound = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-lg"
           >
-            {/* Big 404 */}
+            {}
             <p className="text-[160px] md:text-[200px] font-extrabold leading-none text-muted/40 tabular-nums select-none mb-6">
               404
             </p>

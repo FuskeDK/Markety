@@ -9,7 +9,6 @@ const LogoMarquee = () => {
   const { data: names = [] } = useCompanyNames();
   const [page, setPage] = useState(0);
 
-  // Shuffle once per mount (new random order on every page refresh), cap at 10
   const displayed = useMemo(() => {
     const shuffled = [...names].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, MAX_SHOWN);
@@ -26,7 +25,7 @@ const LogoMarquee = () => {
         Trusted by fast-growing companies
       </p>
 
-      {/* Mobile: grid + arrows */}
+      {}
       <div className="md:hidden px-6">
         <div className="grid grid-cols-2 gap-4 mb-6 min-h-[56px]">
           {visibleLogos.map((logo, i) => (
@@ -54,7 +53,7 @@ const LogoMarquee = () => {
         )}
       </div>
 
-      {/* Desktop: marquee */}
+      {}
       <div className="hidden md:block relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />

@@ -25,7 +25,7 @@ const BenefitsSection = () => {
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
 
-          {/* Left */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ const BenefitsSection = () => {
             </div>
           </motion.div>
 
-          {/* Right */}
+          {}
           <motion.div
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
             initial="hidden"
