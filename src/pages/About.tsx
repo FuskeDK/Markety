@@ -88,7 +88,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Timeline — dots properly centered on the line */}
+            {/* Timeline - dots properly centered on the line */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -216,7 +216,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values — clean 3-col grid with vertical dividers */}
+      {/* Values - clean 3-col grid with vertical dividers */}
       <section className="py-14 md:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div

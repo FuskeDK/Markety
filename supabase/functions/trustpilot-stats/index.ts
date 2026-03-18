@@ -18,7 +18,7 @@ serve(async (req) => {
       throw new Error("Missing TRUSTPILOT_BUSINESS_UNIT_ID or TRUSTPILOT_API_KEY secrets");
     }
 
-    // Fetch the business unit summary — ratingDistribution.fiveStars gives us the count
+    // Fetch the business unit summary - ratingDistribution.fiveStars gives us the count
     const response = await fetch(
       `https://api.trustpilot.com/v1/business-units/${businessUnitId}?apikey=${apiKey}`
     );

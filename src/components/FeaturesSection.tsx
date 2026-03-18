@@ -32,7 +32,7 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4"
         >
-          {/* Featured — Email Marketing */}
+          {/* Featured - Email Marketing */}
           <motion.div
             variants={cardVariants}
             className="md:col-span-2 relative bg-card border border-purple-deep/25 rounded-2xl p-6 md:p-8 overflow-hidden"
@@ -86,7 +86,7 @@ const FeaturesSection = () => {
             <p className="text-sm text-muted-foreground leading-relaxed">The full path from first ad to booked meeting, built around how you sell.</p>
           </motion.div>
 
-          {/* Ad Copy — full width */}
+          {/* Ad Copy - full width */}
           <motion.div
             variants={cardVariants}
             className="md:col-span-3 bg-muted/50 border border-border rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center gap-5"

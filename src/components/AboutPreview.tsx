@@ -62,7 +62,7 @@ const AboutPreview = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
-          {/* Left — text */}
+          {/* Left - text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ const AboutPreview = () => {
             </div>
           </motion.div>
 
-          {/* Right — dashboard-style card */}
+          {/* Right - dashboard-style card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
