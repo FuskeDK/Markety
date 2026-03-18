@@ -81,16 +81,16 @@ const ContactSent = () => {
               </div>
             </div>
 
-            <div className="max-w-2xl mx-auto mt-6 flex gap-4">
+            <div className="max-w-2xl mx-auto mt-6 flex flex-col sm:flex-row gap-4">
               <Button
                 variant="hero"
                 size="sm"
-                className="rounded-full px-5"
+                className="rounded-full px-5 w-full sm:w-auto"
                 onClick={() => navigate("/contact")}
               >
                 Send another message
               </Button>
-              <Button variant="ghost" className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/")}>Back to home</Button>
+              <Button variant="ghost" className="text-muted-foreground hover:text-foreground w-full sm:w-auto" onClick={() => navigate("/")}>Back to home</Button>
             </div>
           </div>
         </section>

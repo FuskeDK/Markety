@@ -127,9 +127,9 @@ const CompanyInfoForm = () => {
                           <Input id="service" value={service} onChange={(e) => setService(e.target.value)} placeholder="e.g. Lead Generation, Ads Management" required />
                         </div>
 
-                        <div className="flex gap-4 mt-4">
-                          <Button type="submit" variant="hero" size="sm" className="rounded-full px-5" disabled={loading}>{loading ? 'Sending…' : 'Send company info'}</Button>
-                          <Button variant="ghost" className="text-muted-foreground hover:text-foreground" onClick={() => navigate("/")}>Back to home</Button>
+                        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+                          <Button type="submit" variant="hero" size="sm" className="rounded-full px-5 w-full sm:w-auto" disabled={loading}>{loading ? 'Sending…' : 'Send company info'}</Button>
+                          <Button variant="ghost" className="text-muted-foreground hover:text-foreground w-full sm:w-auto" onClick={() => navigate("/")}>Back to home</Button>
                         </div>
                       </form>
                     ) : (

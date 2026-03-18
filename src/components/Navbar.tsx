@@ -16,7 +16,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500" style={{ width: scrolled ? "88%" : "95%", maxWidth: scrolled ? "900px" : "1024px" }}>
+    <nav className={`fixed top-4 left-4 right-4 sm:left-1/2 sm:-translate-x-1/2 z-50 transition-all duration-500 ${scrolled ? 'sm:w-[88%] sm:max-w-[900px]' : 'sm:w-[95%] sm:max-w-[1024px]'}`}>
       <div className="bg-card/80 backdrop-blur-xl border border-border rounded-2xl px-6 py-3 flex items-center justify-between transition-all duration-500">
         <Link to="/" className="flex items-center gap-2">
           <img src="/Markety.png" alt="Markety - Lead Generation Platform" className="h-9 w-auto object-top" />
